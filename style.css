@@ -1,0 +1,45 @@
+/* add the domains you want to apply this to here */
+@-moz-document domain("ci.local:8080"), domain("127.0.0.1:8080") {
+  html {
+  	-webkit-filter: invert(100%) !important;
+  }
+  img,
+  iframe {
+  	-webkit-filter: invert(100%) !important;
+  }
+  body {
+  	background: #222;
+  }
+  #header,
+  #breadcrumbBar {
+  	background: #fff;
+  }
+  #main-panel {
+  	background: #ddd;
+  }
+  #side-panel {
+  	background: #ddd;
+  }
+  a,
+  a:visited,
+  .model-link,
+  a:link {
+  	text-decoration: none;
+  	color: #957373;
+  	outline: none;
+  }
+  input#j_username,
+  input[name=j_password] {
+  	font-size: 3.5em;
+  	background-color: #fff !important;
+  	border: solid 1px #fff;
+  	outline: none;
+  }
+  #header .login a,
+  #header .login a:visited {
+  	color: #222;
+  }
+  .inverse {
+  	color: #000;
+  }
+}
