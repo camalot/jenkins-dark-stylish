@@ -1,31 +1,151 @@
 /* add the domains you want to apply this to here */
 @-moz-document domain("ci.local:8080"), domain("127.0.0.1:8080") {
   html {
-  	-webkit-filter: invert(100%) !important;
-  }
-  img,
-  iframe {
-  	-webkit-filter: invert(100%) !important;
   }
   body {
-  	background: #222;
+  	background: #111;
+    color: #c0c0c0;
   }
+
+  #menuSelector {
+    -webkit-filter: invert(100%) !important;
+  }
+  footer {
+    background: #222;
+    color: #c0c0c0;
+    border-color: #222;
+  }
+
+  .greyed {
+  	color: #d1d1d1;
+  }
+
+  .redbold {
+  	color: darkred;
+  	font-weight: bold;
+  }
+
+  .greenbold {
+  	color: #6c0;
+  	font-weight: bold;
+  }
+
   #header,
   #breadcrumbBar {
-  	background: #fff;
+  	background: #000;
+    padding: 0 0 6px 0;
+  }
+  #breadcrumbs {
+    background: #000;
+    border: none;
+    padding-top: 4px;
   }
   #main-panel {
-  	background: #ddd;
+  	background: #222;
+  }
+  #main-panel img {
   }
   #side-panel {
-  	background: #ddd;
+  	background: #222;
   }
+
+
+  /* pane */
+
+  .pane-frame {
+    border: solid 1px #333;
+    border-radius: 4px;
+  }
+
+  #side-panel .pane-frame:hover, #side-panel .pane-frame.mouseover {
+    border: solid 1px #373737;
+  }
+
+  .pane-header, .pane-footer {
+    background-color: #111;
+    border: solid 1px #020202;
+    color: #cecece;
+  }
+  .pane-header {
+  }
+  .pane-footer {
+  }
+
+  .pane td {
+    color: #cecece;
+  }
+
+  table.pane {
+    border: 1px #222 solid;
+    color: #cecece;
+  }
+
+  td.pane {
+  }
+
+  table.stripped tr:nth-child(even) {
+    background: #020202;
+  }
+  table.stripped-even tr:nth-child(even) {
+    background: #020202;
+  }
+  table.stripped-odd tr:nth-child(odd) {
+    background: #020202;
+  }
+
+  div.pane-header {
+  }
+
+  div.pane-header .collapse {
+  }
+
+  th.pane {
+  }
+
+  /* executors */
+
+  #executors th.pane {
+  }
+
+  #executors th.pane a {
+  }
+
+  /* bigtable */
+
+  .bigtable tr {
+    border: 1px solid #222;
+  }
+  #projectstatus .header {
+    border-bottom-color: #222;
+  }
+  .bigtable tr.header {
+    background-color: #111;
+    border-color: #222;
+    color: #c0c0c0;
+  }
+  table.sortable span.sortarrow {
+    color: #c0c0c0;
+  }
+  .bigtable tr.header th {
+    background-color: #111;
+    color: #c0c0c0;
+  }
+
+  table.sortable a.sortheader {
+    color: #c0c0c0;
+  }
+  table.bigtable.pane > tbody > tr > td:last-child {
+  }
+
+  .pane-frame table, .pane-frame .bigtable tr {
+  }
+
   a,
   a:visited,
   .model-link,
   a:link {
   	text-decoration: none;
-  	color: #957373;
+  	color: #4183C4;
   	outline: none;
   }
   input#j_username,
@@ -37,7 +157,10 @@
   }
   #header .login a,
   #header .login a:visited {
-  	color: #222;
+  	color: #c0c0c0;
+  }
+  #header .login a:hover {
+    color: #4183C4;
   }
   .inverse {
   	color: #000;
