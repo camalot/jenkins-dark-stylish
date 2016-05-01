@@ -8,12 +8,12 @@ You will need to add the domains that you want this to apply to yourself.
 ```
 
 
-![Jenkins Menu](http://i.imgur.com/Tuk4X2Jm.png)
+![Jenkins Menu](http://i.imgur.com/Tuk4X2J.png)
 
-![Script Console](http://i.imgur.com/cMfkrb1m.png)
+![Script Console](http://i.imgur.com/cMfkrb1.png)
 
-![Build Queue](http://i.imgur.com/3XI4Sscm.png)
+![Build Queue](http://i.imgur.com/3XI4Ssc.png)
 
-![Manage Jenkins](http://i.imgur.com/KpxsHl4m.png)
+![Manage Jenkins](http://i.imgur.com/KpxsHl4.png)
 
-![Manage Plugins](http://i.imgur.com/yTTJ6qOm.png)
+![Manage Plugins](http://i.imgur.com/yTTJ6qO.png)
