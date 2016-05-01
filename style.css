@@ -268,7 +268,7 @@
     /* pane */
     .pane-frame {
         border: solid 1px #333;
-        border-radius: 4px;
+        border-radius: 0;
     }
     #side-panel .pane-frame:hover, #side-panel .pane-frame.mouseover {
         border: solid 1px #373737;
@@ -354,6 +354,11 @@
         padding: 4px;
         border: none;
     }
+    #buildQueue .pane[colspan='2'] {
+        text-align: center;
+        padding: 10px 0 10px 0;
+        color: #999;
+    }
     .build-search-row input {
         border: solid 1px #111;
         color: #c0c0c0;
@@ -399,18 +404,16 @@
     #header .login a:hover {
         color: #4183C4;
     }
-    #search-box {
+    #filter-box, #search-box {
         border: solid 1px #111;
         border-radius: 0;
         box-shadow: none;
-        background-color: #3a3a3a;
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAFGSURBVDhPjZJNK0RRHMZd5AsYZaFsWNEsbGykZKOsrKys2FnMVxBFTZOJhWwo38DKRkp5+QaSNHsslJqihnP9/v/zjNt1p2Z+9XTOeV7ulPS1SdN0MISwgW5RE7XQI9pDI6p1hnGJ0j1nR8jeOOZUz0Ngv3znTeDeQDW0zfM6uu5/oAnNMjDX1bHSGceQIgdvDf0oP5edgXmjsPF/3IbsSJ1vNCw7gtFUWJNVgGzeOgb3BdkRjJayLVkF6MyoYx9Ykh3BeFJwJasAWcXXwH1SdgSjqszCVdl/4I2jV+UPsjPwRwneVbB/njqaRdNoE71YZnA/1SwPwSLyP2Y36O1olodgCl2ioK7D8xld6OnwrmpWhHAMLaMVVKafoAHuJ74WvA84Es26Q7mf0bGvBe+64t5gkzA6jHP/wJei3mFnH9lFnyGE/V95bf8tPbGHWgAAAABJRU5ErkJggg==');
-        background-repeat: no-repeat;
-        background-position: 3px center;
+        background: #3a3a3a url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAFGSURBVDhPjZJNK0RRHMZd5AsYZaFsWNEsbGykZKOsrKys2FnMVxBFTZOJhWwo38DKRkp5+QaSNHsslJqihnP9/v/zjNt1p2Z+9XTOeV7ulPS1SdN0MISwgW5RE7XQI9pDI6p1hnGJ0j1nR8jeOOZUz0Ngv3znTeDeQDW0zfM6uu5/oAnNMjDX1bHSGceQIgdvDf0oP5edgXmjsPF/3IbsSJ1vNCw7gtFUWJNVgGzeOgb3BdkRjJayLVkF6MyoYx9Ykh3BeFJwJasAWcXXwH1SdgSjqszCVdl/4I2jV+UPsjPwRwneVbB/njqaRdNoE71YZnA/1SwPwSLyP2Y36O1olodgCl2ioK7D8xld6OnwrmpWhHAMLaMVVKafoAHuJ74WvA84Es26Q7mf0bGvBe+64t5gkzA6jHP/wJei3mFnH9lFnyGE/V95bf8tPbGHWgAAAABJRU5ErkJggg==') 3px center no-repeat !important;
         padding: 4px 3px 4px 25px;
+        padding-left: 25px !important;
         color: #c0c0c0;
     }
-    #search-box:hover {
+    #filter-box:hover, #search-box:hover {
         border-color: #4183C4;
     }
     .inverse {
@@ -486,5 +489,30 @@
         z-index: 2;
         opacity: 1;
         cursor: pointer;
+    }
+    .changeset-message {
+        background-color: #444;
+        border-color: #111;
+        color: #c0c0c0;
+    }
+    /* WTF Jenkins! */
+    table[border="1"] {
+        border: solid 1 #111 !important;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    table[border="1"] td {
+        border: solid 0px #111 !important;
+        margin: 0;
+        padding: 5px;
+    }
+    tr[bgcolor="#0099EE"] {
+        background-color: #4183C4 !important;
+    }
+    tr[bgcolor="bbbbb"]:nth-child(even) {
+        background-color: #111 !important;
+    }
+    tr[bgcolor="bbbbb"]:nth-child(odd) {
+        background-color: #555 !important;
     }
 }
