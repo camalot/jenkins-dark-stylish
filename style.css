@@ -1,168 +1,208 @@
 /* add the domains you want to apply this to here */
 @-moz-document domain("ci.local:8080"), domain("127.0.0.1:8080") {
-  html {
-  }
-  body {
-  	background: #111;
-    color: #c0c0c0;
-  }
+html {}
+body {
+	background: #222;
+	color: #c0c0c0;
+}
+body,
+table,
+form,
+td,
+th,
+p {
+	color: #c0c0c0;
+}
+#menuSelector {
+	-webkit-filter: invert(100%) !important;
+}
 
-  #menuSelector {
-    -webkit-filter: invert(100%) !important;
-  }
-  footer {
-    background: #222;
-    color: #c0c0c0;
-    border-color: #222;
-  }
+.healthReportDetails {
+	-webkit-filter: invert(100%) !important;
+}
 
-  .greyed {
-  	color: #d1d1d1;
-  }
+.healthReportDetails img {
+	-webkit-filter: invert(100%) !important;
+}
 
-  .redbold {
-  	color: darkred;
-  	font-weight: bold;
-  }
+footer {
+	background: #111;
+	color: #c0c0c0;
+	border-color: #333;
+	border-bottom: none;
+}
+.greyed {
+	color: #d1d1d1;
+}
+.redbold {
+	color: darkred;
+	font-weight: bold;
+}
+.greenbold {
+	color: #6c0;
+	font-weight: bold;
+}
+#header,
+#breadcrumbBar {
+	background: #000;
+	padding: 0 0 6px 0;
+}
+#breadcrumbs {
+	background: #000;
+	border: none;
+	padding-top: 4px;
+}
+#main-panel {
+	background: #222;
+}
+#main-panel img {}
+#side-panel {
+	background: #222;
+}
+/* pane */
 
-  .greenbold {
-  	color: #6c0;
-  	font-weight: bold;
-  }
+.pane-frame {
+	border: solid 1px #333;
+	border-radius: 4px;
+}
+#side-panel .pane-frame:hover,
+#side-panel .pane-frame.mouseover {
+	border: solid 1px #373737;
+}
+.pane-header,
+.pane-footer {
+	background-color: #111;
+	border: solid 1px #020202;
+	color: #cecece;
+}
+.pane-header {}
+.pane-footer {}
+.pane td {
+	color: #cecece;
+}
+table.pane {
+	border: 1px #222 solid;
+	color: #cecece;
+}
+td.pane {}
+table.stripped tr:nth-child(even) {
+	background: #020202;
+}
+table.stripped-even tr:nth-child(even) {
+	background: #020202;
+}
+table.stripped-odd tr:nth-child(odd) {
+	background: #020202;
+}
+div.pane-header {}
+div.pane-header .collapse {}
+th.pane {}
+/* executors */
 
-  #header,
-  #breadcrumbBar {
-  	background: #000;
-    padding: 0 0 6px 0;
-  }
-  #breadcrumbs {
-    background: #000;
-    border: none;
-    padding-top: 4px;
-  }
-  #main-panel {
-  	background: #222;
-  }
-  #main-panel img {
-  }
-  #side-panel {
-  	background: #222;
-  }
+#executors th.pane {}
+#executors th.pane a {}
+/* bigtable */
+
+.bigtable tr {
+	border: 1px solid #222;
+}
+#projectstatus .header {
+	border-bottom-color: #222;
+}
+.bigtable tr.header {
+	background-color: #111;
+	border-color: #222;
+	color: #c0c0c0;
+}
+table.sortable span.sortarrow {
+	color: #c0c0c0;
+}
+.bigtable tr.header th {
+	background-color: #111;
+	color: #c0c0c0;
+}
+table.sortable a.sortheader {
+	color: #c0c0c0;
+}
+table.bigtable.pane > tbody > tr > td:last-child {}
+.pane-frame table,
+.pane-frame .bigtable tr {}
+table.stripped tr:nth-child(even) {
+	background: #111;
+	color: #c0c0c0;
+}
+
+.build-search-row td { padding: 0; }
+#buildHistoryPage .build-search-row .clear {
+	border: none;
+	margin-top: -5px;
+	margin-right: -5px;
+	padding: 4px;
+}
+#buildHistoryPage .build-search-row .clear:hover {
+	background-color: #111;
+	margin-top: -4px;
+	margin-right: -5px;
+	padding: 4px;
+	border: none;
+}
+.build-search-row input {
+	border: solid 1px #111;
+	color: #c0c0c0;
+	background-color: #282828;
+	outline: none;
+	padding: 6px 5px 4px 5px;
+}
+.build-search-row input:hover {
+	border-color: #4183C4;
+}
 
 
-  /* pane */
+.build-row:hover,
+.build-row.model-link-active {
+	background: #444 !important;
+	color: #ccc;
+}
+.build-row:hover,
+.build-row.model-link-active {
+	background: #444 !important;
+	color: #ccc;
+}
+.pane.build-details a,
+.pane.build-details a:visited,
+.pane.build-name a,
+.pane.build-name a:visited {
+	text-decoration: none;
+	color: #c0c0c0;
+}
 
-  .pane-frame {
-    border: solid 1px #333;
-    border-radius: 4px;
-  }
+.pane.build-name a:hover {
+	text-decoration: underline;
+}
 
-  #side-panel .pane-frame:hover, #side-panel .pane-frame.mouseover {
-    border: solid 1px #373737;
-  }
-
-  .pane-header, .pane-footer {
-    background-color: #111;
-    border: solid 1px #020202;
-    color: #cecece;
-  }
-  .pane-header {
-  }
-  .pane-footer {
-  }
-
-  .pane td {
-    color: #cecece;
-  }
-
-  table.pane {
-    border: 1px #222 solid;
-    color: #cecece;
-  }
-
-  td.pane {
-  }
-
-  table.stripped tr:nth-child(even) {
-    background: #020202;
-  }
-  table.stripped-even tr:nth-child(even) {
-    background: #020202;
-  }
-  table.stripped-odd tr:nth-child(odd) {
-    background: #020202;
-  }
-
-  div.pane-header {
-  }
-
-  div.pane-header .collapse {
-  }
-
-  th.pane {
-  }
-
-  /* executors */
-
-  #executors th.pane {
-  }
-
-  #executors th.pane a {
-  }
-
-  /* bigtable */
-
-  .bigtable tr {
-    border: 1px solid #222;
-  }
-  #projectstatus .header {
-    border-bottom-color: #222;
-  }
-  .bigtable tr.header {
-    background-color: #111;
-    border-color: #222;
-    color: #c0c0c0;
-  }
-  table.sortable span.sortarrow {
-    color: #c0c0c0;
-  }
-  .bigtable tr.header th {
-    background-color: #111;
-    color: #c0c0c0;
-  }
-
-  table.sortable a.sortheader {
-    color: #c0c0c0;
-  }
-  table.bigtable.pane > tbody > tr > td:last-child {
-  }
-
-  .pane-frame table, .pane-frame .bigtable tr {
-  }
-
-  a,
-  a:visited,
-  .model-link,
-  a:link {
-  	text-decoration: none;
-  	color: #4183C4;
-  	outline: none;
-  }
-  input#j_username,
-  input[name=j_password] {
-  	font-size: 3.5em;
-  	background-color: #fff !important;
-  	border: solid 1px #fff;
-  	outline: none;
-  }
-  #header .login a,
-  #header .login a:visited {
-  	color: #c0c0c0;
-  }
-  #header .login a:hover {
-    color: #4183C4;
-  }
-  .inverse {
-  	color: #000;
-  }
+a,
+a:visited,
+.model-link,
+a:link {
+	text-decoration: none;
+	color: #4183C4;
+	outline: none;
+}
+input#j_username,
+input[name=j_password] {
+	font-size: 3.5em;
+	background-color: #fff !important;
+	border: solid 1px #fff;
+	outline: none;
+}
+#header .login a,
+#header .login a:visited {
+	color: #c0c0c0;
+}
+#header .login a:hover {
+	color: #4183C4;
+}
+.inverse {
+	color: #000;
+}
 }
