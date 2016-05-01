@@ -77,10 +77,10 @@
     .cm-s-default span.cm-keyword {
         color: #4183C4;
     }
-    .setting-input, input:hover {
+    .setting-input, input[type='text']:hover, input[type='password']:hover {
         border-color: #4183C4;
     }
-    .setting-input, input {
+    .setting-input, input[type='text'], input[type='password'] {
         font-size: 1.2em;
         border: solid 1px #111;
         color: #c0c0c0;
@@ -174,12 +174,12 @@
     }
     #header, #breadcrumbBar {
         background: #000;
-        padding: 0 0 6px 0;
+        
     }
     #breadcrumbs {
         background: #000;
         border: none;
-        padding-top: 4px;
+				border-bottom: none;
     }
     #main-panel {
         background: #222;
@@ -304,9 +304,12 @@
     }
     input#j_username, input[name=j_password] {
         font-size: 3.5em;
-        background-color: #fff;
-        border: solid 1px #fff;
+        background-color: #3a3a3a;
+        border: solid 1px #111;
         outline: none;
+    }
+    input#j_username:hover, input[name=j_password]:hover {
+        border-color: #4183C4;
     }
     .setting-name {
         text-transform: capitalize;
@@ -318,6 +321,20 @@
     }
     #header .login a:hover {
         color: #4183C4;
+    }
+    #search-box {
+        border: solid 1px #111;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: #3a3a3a;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAFGSURBVDhPjZJNK0RRHMZd5AsYZaFsWNEsbGykZKOsrKys2FnMVxBFTZOJhWwo38DKRkp5+QaSNHsslJqihnP9/v/zjNt1p2Z+9XTOeV7ulPS1SdN0MISwgW5RE7XQI9pDI6p1hnGJ0j1nR8jeOOZUz0Ngv3znTeDeQDW0zfM6uu5/oAnNMjDX1bHSGceQIgdvDf0oP5edgXmjsPF/3IbsSJ1vNCw7gtFUWJNVgGzeOgb3BdkRjJayLVkF6MyoYx9Ykh3BeFJwJasAWcXXwH1SdgSjqszCVdl/4I2jV+UPsjPwRwneVbB/njqaRdNoE71YZnA/1SwPwSLyP2Y36O1olodgCl2ioK7D8xld6OnwrmpWhHAMLaMVVKafoAHuJ74WvA84Es26Q7mf0bGvBe+64t5gkzA6jHP/wJei3mFnH9lFnyGE/V95bf8tPbGHWgAAAABJRU5ErkJggg==');
+        background-repeat: no-repeat;
+        background-position: 3px center;
+        padding: 4px 3px 4px 25px;
+        color: #c0c0c0;
+    }
+    #search-box:hover {
+        border-color: #4183C4;
     }
     .inverse {
         color: #000;
