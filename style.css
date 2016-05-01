@@ -58,31 +58,31 @@
         display: none;
     }
     .CodeMirror-gutter {
-        background-color: #111;
-        border-color: #555;
+        background-color: #111 !important;
+        border-color: #555 !important;
     }
     .CodeMirror-scrollbar {}
     .CodeMirror-gutter-text {
-        color: #8ED0FF;
+        color: #8ED0FF !important;
     }
     .cm-s-default span.cm-property {
-        color: #a40;
+        color: #a40 !important;
     }
     .cm-s-default span.cm-comment {
-        color: #666;
+        color: #666 !important;
     }
     .cm-s-default span.cm-string {
-        color: #44ab48;
+        color: #44ab48 !important;
     }
     .cm-s-default span.cm-atom {
-        color: #c50;
-        font-weight: bolder;
+        color: #c50 !important;
+        font-weight: bolder !important;
     }
     .cm-s-default span.cm-operator, .cm-s-default span.cm-variable, .CodeMirror-lines {
-        color: #c0c0c0;
+        color: #c0c0c0 !important;
     }
     .cm-s-default span.cm-keyword {
-        color: #4183C4;
+        color: #4183C4 !important;
     }
     .setting-input, input[type='text']:hover, input[type='password']:hover {
         border-color: #4183C4;
