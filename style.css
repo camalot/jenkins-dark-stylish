@@ -9,6 +9,43 @@
     body, table, form, td, th, p {
         color: #c0c0c0;
     }
+    form {
+        margin: 0;
+        padding: 0;
+    }
+    a, a:visited, .model-link, a:link {
+        text-decoration: none;
+        color: #4183C4;
+        outline: none;
+    }
+    .warning {
+        border: solid 1px #FAB700;
+        margin: 5px 10px 5px 10px;
+        padding: 0 0 0 50px;
+        display: block;
+        background-color: #E1C800;
+        background-image: url("../images/48x48/warning.png");
+        min-height: 50px;
+        vertical-align: middle;
+        color: #222;
+    }
+    .warning form {
+        color: #222
+    }
+    .warning a {
+        color: #333;
+        text-decoration: underline;
+    }
+    .error {
+        border: solid 1px #940000;
+        margin: 5px 10px 5px 10px;
+        padding: 0 0 0 50px;
+        display: block;
+        background-color: #7B0000;
+        background-image: url("../images/48x48/error.png");
+        min-height: 50px;
+        vertical-align: middle;
+    }
     /* this is a fix for the missing img on the script console... it drives me insane */
     #main-panel > h1 > img[src$='/48x48/'] {
         content: url('/static/26867933/images/48x48/terminal.png');
@@ -54,22 +91,75 @@
         box-shadow: none;
     }
     .bottom-sticker-edge {
-        display: none !important;
+        display: none;
     }
     #menuSelector, img.icon-hourglass, .healthReportDetails {
-        -webkit-filter: invert(100%) !important;
+        -webkit-filter: invert(100%);
     }
     img[src$="blue.png"], .icon-blue-anime, .icon-blue {
-        -webkit-filter: hue-rotate(245deg) !important;
+        -webkit-filter: hue-rotate(245deg);
     }
     .healthReportDetails img {
-        -webkit-filter: invert(100%) !important;
+        -webkit-filter: invert(100%);
+    }
+    .icon-stop {
+        content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAABxSURBVDhPpYxRCoAwDEMLu7tX9nMaWaTSNh34oB9bXmLkHOPArWdJ6uFjmk2cGkk9/xlCR+llwRsuWkcJbZlUYnahTHZGyjJRI20Z/BpQZV45slPmhZGqjH+VteVHuJFOFvoykZ4PszKRHj5UmXw9swswSS3MSYEAYwAAAABJRU5ErkJggg==')
     }
     footer {
         background: #111;
         color: #c0c0c0;
         border-color: #333;
         border-bottom: none;
+    }
+    div.textarea-handle {
+        background-color: #555;
+        background-image: none;
+        border: solid 1px #111;
+        margin-bottom: 10px;
+    }
+    .textarea-preview-container {
+        text-indent: -66px;
+        overflow: hidden;
+    }
+    .textarea-preview-container .textarea-preview {
+        text-indent: 0;
+        background-color: #222;
+        border: solid 1px #111;
+        color: #c0c0c0;
+    }
+    .textarea-preview-container a.textarea-show-preview {
+        display: inline-block !important;
+        overflow: hidden;
+        text-indent: -9999px;
+    }
+    .textarea-preview-container a.textarea-show-preview::before {
+        content: 'Preview [';
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0 4px 0 0;
+        text-indent: 0;
+    }
+    .textarea-preview-container a.textarea-show-preview::after {
+        content: 'Show |';
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0;
+        text-indent: 0;
+    }
+    .textarea-preview-container a.textarea-hide-preview {
+        display: inline-block !important;
+        overflow: hidden;
+        text-indent: -9999px;
+    }
+    .textarea-preview-container a.textarea-hide-preview::after {
+        content: 'Hide ]';
+        float: left;
+        font-size: 18px;
+        line-height: 20px;
+        margin: 0;
+        text-indent: 0;
     }
     .greyed {
         color: #d1d1d1;
@@ -198,11 +288,11 @@
         border-color: #4183C4;
     }
     .build-row:hover, .build-row.model-link-active {
-        background: #444 !important;
+        background: #444;
         color: #ccc;
     }
     .build-row:hover, .build-row.model-link-active {
-        background: #444 !important;
+        background: #444;
         color: #ccc;
     }
     .pane.build-details a, .pane.build-details a:visited, .pane.build-name a, .pane.build-name a:visited {
@@ -212,14 +302,9 @@
     .pane.build-name a:hover {
         text-decoration: underline;
     }
-    a, a:visited, .model-link, a:link {
-        text-decoration: none;
-        color: #4183C4;
-        outline: none;
-    }
     input#j_username, input[name=j_password] {
         font-size: 3.5em;
-        background-color: #fff !important;
+        background-color: #fff;
         border: solid 1px #fff;
         outline: none;
     }
