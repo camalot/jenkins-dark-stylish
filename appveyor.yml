@@ -6,6 +6,7 @@ environment:
 install:
 - ps: Install-Product node $env:nodejs_version x64
 - cmd: npm install -g less
+- cmd: npm install -g less-plugin-clean-css
 build_script:
 - cmd: lessc -x --no-color --clean-css jenkins-dark.less ./dist/jenkins-dark.css
 artifacts:
