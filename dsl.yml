@@ -1,0 +1,18 @@
+version: 1.0.{{build}}
+description: ''
+slack: "#notifications"
+topic:
+develop:
+  # build:
+  #   before:
+  #   run:
+  #   after:
+  # test:
+  #   before:
+  #   run:
+  #   after:
+master:
+  watch:
+    projects:
+      - ./develop-to-master
+    threshold: SUCCESS
