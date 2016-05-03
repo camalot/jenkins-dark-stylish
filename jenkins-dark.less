@@ -78,35 +78,9 @@
     img[src$='none.gif'] {
         display: none;
     }
-    .CodeMirror-gutter {
-        background-color: @background-black !important;
-        border-color: #555 !important;
-    }
-    .CodeMirror-scrollbar {}
-    .CodeMirror-gutter-text {
-        color: #8ED0FF !important;
-    }
-    .cm-s-default span.cm-property {
-        color: #a40 !important;
-    }
-    .cm-s-default span.cm-comment {
-        color: #666 !important;
-    }
-    .cm-s-default span.cm-string {
-        color: #44ab48 !important;
-    }
-    .cm-s-default span.cm-atom {
-        color: #c50 !important;
-        font-weight: bolder !important;
-    }
-    .CodeMirror-lines,
-    .cm-s-default span.cm-operator,
-    .cm-s-default span.cm-variable {
-        color: @text-light !important;
-    }
-    .cm-s-default span.cm-keyword {
-        color: #4183C4 !important;
-    }
+
+    @import url('./parts/_code-editor.less');
+
     .setting-input,
     input[type='password']:hover,
     input[type='text']:hover {
