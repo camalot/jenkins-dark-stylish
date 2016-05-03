@@ -1,6 +1,6 @@
 version: 1.0.{build}
 skip_tags: true
-image: Visual Studio 2015
+image: WMF 5
 environment:
   nodejs_version: 5.11.0
 install:
