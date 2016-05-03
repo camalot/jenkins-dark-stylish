@@ -31,3 +31,5 @@ You will need to add the domains that you want this to apply to yourself.
 ![Manage Jenkins](http://i.imgur.com/KpxsHl4.png)
 
 ![Manage Plugins](http://i.imgur.com/yTTJ6qO.png)
+
+![Dashboard](http://i.imgur.com/7UA0UQf.png)
