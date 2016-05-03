@@ -1,0 +1,245 @@
+@import url( './_variables.less');
+.CodeMirror {
+    line-height: 1em;
+    font-family: monospace;
+    /* Necessary so the scrollbar can be absolutely positioned within the wrapper on Lion. */
+    position: relative;
+    /* This prevents unwanted scrollbars from showing up on the body and wrapper in IE. */
+    overflow: hidden;
+}
+.CodeMirror-scroll {
+    overflow: auto;
+    height: 300px;
+    /* This is needed to prevent an IE[67] bug where the scrolled content
+     is visible outside of the scrolling box. */
+    position: relative;
+    outline: none;
+}
+/* Vertical scrollbar */
+.CodeMirror-scrollbar {
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    z-index: 5;
+}
+.CodeMirror-scrollbar-inner {
+    /* This needs to have a nonzero width in order for the scrollbar to appear
+     in Firefox and IE9. */
+    width: 1px;
+}
+.CodeMirror-scrollbar.cm-sb-overlap {
+    /* Ensure that the scrollbar appears in Lion, and that it overlaps the content
+     rather than sitting to the right of it. */
+    position: absolute;
+    z-index: 1;
+    float: none;
+    right: 0;
+    min-width: 12px;
+}
+.CodeMirror-scrollbar.cm-sb-nonoverlap {
+    min-width: 12px;
+}
+.CodeMirror-scrollbar.cm-sb-ie7 {
+    min-width: 18px;
+}
+.CodeMirror-gutter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background-color: @background-black !important;
+    border-right: 1px solid @background-555 !important;
+    min-width: 2em;
+    height: 100%;
+}
+.CodeMirror-gutter-text {
+    color: lighten(@blue, 10%) !important;
+    text-align: right;
+    padding: 0.4em 0.2em 0.4em 0.4em;
+    white-space: pre !important;
+    cursor: default;
+}
+.CodeMirror-lines {
+    padding: 0.4em;
+    white-space: pre;
+    cursor: text;
+    color: @text-light !important;
+}
+.CodeMirror {
+    textarea {
+        outline: none !important;
+    }
+    pre {
+        -moz-border-radius: 0;
+        -webkit-border-radius: 0;
+        -o-border-radius: 0;
+        border-radius: 0;
+        border-width: 0;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        font-family: inherit;
+        font-size: inherit;
+        padding: 0;
+        margin: 0;
+        white-space: pre;
+        word-wrap: normal;
+        line-height: inherit;
+        color: inherit;
+        overflow: visible;
+        &.CodeMirror-cursor {
+            z-index: 10;
+            position: absolute;
+            visibility: hidden;
+            border-left: 6px solid @green;
+            border-right: none;
+            width: 0;
+        }
+    }
+}
+.CodeMirror-wrap {
+    .CodeMirror-scroll {
+        overflow-x: hidden;
+    }
+    pre {
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        word-break: normal;
+    }
+}
+.cm-keymap-fat-cursor pre.CodeMirror-cursor {
+    width: auto;
+    border: 0;
+    background: transparent;
+    background: rgba(255, 255, 255, .4);
+}
+/* Kludge to turn off filter in ie9+, which also accepts rgba */
+.cm-keymap-fat-cursor pre.CodeMirror-cursor:not(#nonsense_id) {
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.CodeMirror pre.CodeMirror-cursor.CodeMirror-overwrite {}
+.CodeMirror-focused pre.CodeMirror-cursor {
+    visibility: visible;
+}
+div.CodeMirror-selected {
+    background: lighten(@blue,50%);
+    color: @white !important;
+}
+.CodeMirror-focused div.CodeMirror-selected {
+  background: lighten(@blue,50%);
+  color: @white;
+}
+.CodeMirror-searching {
+    background: #ffa;
+    background: rgba(255, 255, 0, .4);
+}
+/* Default theme */
+.cm-s-default {
+  span {
+    &.cm-keyword {
+      color: @blue !important;
+    }
+    &.cm-atom {
+      color: #c50 !important;
+      font-weight: bolder !important;
+    }
+    &.cm-number {
+        color: #164;
+    }
+    &.cm-def {
+        color: #00f;
+    }
+    &.cm-variable {
+      color: @text-light !important;
+    }
+    &.cm-variable-2 {
+      color: darken(@text-light,10%) !important;
+    }
+    &.cm-variable-3 {
+      color: darken(@text-light,20%) !important;
+    }
+    &.cm-property {
+        color: #a40;
+    }
+    &.cm-operator {
+      color: @text-light !important;
+    }
+    &.cm-comment {
+      color: #666 !important;
+    }
+    &.cm-string {
+      color: @green !important;
+    }
+    &.cm-string-2 {
+      color: @green !important;
+    }
+    &.cm-meta {
+        color: darken(@white,25%);
+    }
+    &.cm-error {
+        color: @background-error;
+        text-decoration: underline;
+        text-decoration-style: wavy;
+    }
+    &.cm-qualifier {
+      color: @text-light !important;
+    }
+    &.cm-builtin {
+        color: #30a;
+    }
+    &.cm-bracket {
+        color: #997;
+    }
+    &.cm-tag {
+        color: #170;
+    }
+    &.cm-attribute {
+        color: #00c;
+    }
+    &.cm-header {
+      color: @blue !important;
+    }
+    &.cm-quote {
+        color: #090;
+    }
+    &.cm-hr {
+        color: #999;
+    }
+    &.cm-link {
+        color: #00c;
+    }
+  }
+}
+span.cm-negative {
+    color: #d44;
+}
+span.cm-positive {
+    color: #292;
+}
+span.cm-header,
+span.cm-strong {
+    font-weight: bold;
+}
+span.cm-em {
+    font-style: italic;
+}
+span.cm-emstrong {
+    font-style: italic;
+    font-weight: bold;
+}
+span.cm-link {
+    text-decoration: underline;
+}
+span.cm-invalidchar {
+    color: @background-error;
+    text-decoration: underline;
+    text-decoration-style: wavy;
+}
+div.CodeMirror span.CodeMirror-matchingbracket {
+    color: #0f0;
+}
+div.CodeMirror span.CodeMirror-nonmatchingbracket {
+    color: #f22;
+}

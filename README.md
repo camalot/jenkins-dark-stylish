@@ -4,7 +4,7 @@ A stylish for Jenkins to give a dark theme
 You will need to add the domains that you want this to apply to yourself.
 
 ```
- @-moz-document domain("jenkins-ci.org"), domain("my-ci-host.com"), domain("127.0.0.1:8080") {
+ @-moz-document domain("my-jenkins-ci-host.com") { ... }
 ```
 
 ## How to install
@@ -13,11 +13,12 @@ You will need to add the domains that you want this to apply to yourself.
 - Extract to a known location
 - Open the `css` file in your text editor of choice
 - Modify the `@-moz-document` line to contain the domains you want to apply this to
+ -  `@-moz-document domain("my-jenkins-ci-host.com") { ... }`
 - Save the changes
-- Open the Stylish Manager
- - [Chrome](chrome-extension://fjnbnpbmkenffdnngjfgmeleoegfcffe/manage.html)
-- Click on Import
-- Select the `jenkins-dark.css` file
+- Open the Stylish Style Manager (_Manage installed styles._)
+- Click on _Write new Style_
+- Under _Mozilla Format_, Click on _Import_ button
+- Select the `jenkins-dark.css` file that you extracted earlier
 - Profit!
 
 ## Screenshots
