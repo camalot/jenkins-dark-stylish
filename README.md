@@ -1,4 +1,4 @@
-# jenkins-dark-stylish
+# jenkins-dark
 A stylish for Jenkins to give a dark theme
 
 You will need to add the domains that you want this to apply to yourself.
@@ -7,6 +7,20 @@ You will need to add the domains that you want this to apply to yourself.
  @-moz-document domain("jenkins-ci.org"), domain("my-ci-host.com"), domain("127.0.0.1:8080") {
 ```
 
+## How to install
+
+- Download the latest release
+- Extract to a known location
+- Open the `css` file in your text editor of choice
+- Modify the `@-moz-document` line to contain the domains you want to apply this to
+- Save the changes
+- Open the Stylish Manager
+ - [Chrome](chrome-extension://fjnbnpbmkenffdnngjfgmeleoegfcffe/manage.html)
+- Click on Import
+- Select the `jenkins-dark.css` file
+- Profit!
+
+## Screenshots
 
 ![Jenkins Menu](http://i.imgur.com/Tuk4X2J.png)
 

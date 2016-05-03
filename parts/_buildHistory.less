@@ -1,0 +1,56 @@
+@import url('./_variables.less');
+.pane {
+  .build-name,
+  .build-details {
+    a, a:visited, a:link {
+      text-decoration: none;
+      color: @text-light;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+#buildHistory {
+    .build-search-row td {
+        padding: 0;
+        input {
+            border: solid 1px @background-black;
+            color: @text-light;
+            background-color: #282828;
+            outline: none;
+            padding: 6px 5px 4px;
+            &:hover {
+                border-color: #4183C4;
+            }
+        }
+    }
+    .build-row {
+        &.model-link-active,
+        &:hover {
+            background: @blue !important;
+            color: @text-light;
+
+            font[color="gray"] { color: @white !important; }
+            a, a:visited, a:link {
+              color: @white !important;
+            }
+        }
+    }
+}
+#buildHistoryPage {
+    .build-search-row .clear {
+        border: none;
+        margin-top: -5px;
+        margin-right: -5px;
+        padding: 4px;
+    }
+    .build-search-row .clear:hover {
+        background-color: @background-black;
+        margin-top: -4px;
+        margin-right: -5px;
+        padding: 4px;
+        border: none;
+    }
+}

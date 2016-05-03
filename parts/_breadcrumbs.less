@@ -1,0 +1,59 @@
+@import url( './_variables.less');
+
+#breadcrumbs {
+    margin-top: 4px !important;
+    background: @background-black;
+    border: none;
+    border-bottom: none !important;
+    li {
+        &.children,
+        &.separator {
+            width: 16px;
+            background-image: @menu_right_arrow2 !important;
+            background-position: center center;
+            background-repeat: no-repeat;
+            &:hover {
+                background-image: @menu_right_arrow2 !important;
+                background-position: center center!important;
+                background-repeat: no-repeat!important;
+            }
+        }
+        a, a:link, a:visited {
+          color: @white !important;
+        }
+        &:hover, a.breadcrumbBarAnchor.mouseIsOverMenuSelector {
+          background: #4183C4!important;
+          color: @white;
+          opacity: 0.8;
+          a {
+            color: @white!important;
+          }
+        }
+    }
+}
+
+.yui-skin-sam {
+  .yuimenuitem-hassubmenu {
+      background-image: @submenu_right_arrow;
+  }
+  .yuimenuitem-selected {
+    background-color: @blue;
+  }
+  .yuimenu {
+    .bd {
+      box-shadow: none !important;
+      border-color: @background-black !important;
+
+      background-color: @background-333;
+      color: @white;
+      a {
+        color: @white;
+      }
+      li {
+        &:hover {
+          background-color: @blue;
+        }
+      }
+    }
+  }
+}

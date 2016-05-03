@@ -8,7 +8,10 @@ install:
 - cmd: npm install -g less
 - cmd: npm install -g less-plugin-clean-css
 build_script:
-- cmd: lessc --no-color --clean-css jenkins-dark.less ./dist/jenkins-dark.css
+- cmd: lessc --no-color jenkins-dark.less ./dist/jenkins-dark.css
+- ps: Compress-Archive -Path $(APPVEYOR_BUILD_FOLDER)/dist/*.css -DestinationPath ./dist/$(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION).zip
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
+- path: dist/*.zip
+  name: zip
