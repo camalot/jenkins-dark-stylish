@@ -1,0 +1,44 @@
+@import url( './_variables.less');
+
+.warning {
+    border: solid 1px darken(@background-warning, 10%);
+    margin: 5px 10px;
+    padding: 0 0 0 50px;
+    display: block;
+    background-color: @background-warning;
+    background-image: @warning-image-48;
+    min-height: 50px;
+    vertical-align: middle;
+    color: @text-dark;
+    form {
+        color: @text-dark;
+    }
+    a {
+        color: @background-333;
+        text-decoration: underline;
+    }
+}
+.error {
+    border: solid 1px darken(@background-error, 10%);
+    margin: 5px 10px;
+    padding: 0 0 0 50px;
+    display: block;
+    background-color: @background-error;
+    background-image: @error-image-48;
+    min-height: 50px;
+    vertical-align: middle;
+    form {
+        color: @text-light;
+    }
+    a {
+        color: @blue;
+        text-decoration: underline;
+    }
+}
+
+
+.changeset-message {
+    background-color: #444;
+    border-color: @background-black;
+    color: @text-light;
+}
