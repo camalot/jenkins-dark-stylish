@@ -9,7 +9,12 @@ You will need to add the domains that you want this to apply to yourself.
 
 ## How to install
 
-- Download the latest release
+_note: these steps may be slightly different for FireFox version of Stylish_
+
+- Install Stylish:
+ - [Chrome][stylish-chrome]
+ - [Firefox][stylish-firefox]
+- Download the [latest release](https://github.com/camalot/jenkins-dark-stylish/releases/latest)
 - Extract to a known location
 - Open the `css` file in your text editor of choice
 - Modify the `@-moz-document` line to contain the domains you want to apply this to
@@ -34,3 +39,7 @@ You will need to add the domains that you want this to apply to yourself.
 ![Manage Plugins](http://i.imgur.com/yTTJ6qO.png)
 
 ![Dashboard](http://i.imgur.com/7UA0UQf.png)
+
+
+[stylish-chrome]: https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en
+[stylish-firefox]: https://addons.mozilla.org/en-US/firefox/addon/stylish/
