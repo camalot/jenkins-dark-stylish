@@ -1,0 +1,19 @@
+@import url( './_variables.less');
+
+
+.icon-blue,
+.icon-blue-anime,
+img[src$="blue.png"] {
+    /* this makes the 'blue ball' green */
+    -webkit-filter: hue-rotate(245deg);
+}
+img.icon-hourglass {
+  content: @clock-image-16;
+}
+
+.icon-stop {
+    content: @stop-build-image-16;
+}
+.icon-help.icon-sm {
+    content: @help-image-16;
+}

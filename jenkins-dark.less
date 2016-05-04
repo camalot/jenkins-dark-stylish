@@ -58,6 +58,18 @@
         box-shadow: none;
     }
 
+    footer {
+        background: @background-black;
+        color: @text-light;
+        border-color: @background-333;
+        border-bottom: none;
+    }
+    #header {
+        background: @background-black;
+    }
+
+
+
     @import url( './parts/_notifications.less');
     @import url( './parts/_wtf.less');
     @import url( './parts/_code-editor.less');
@@ -72,12 +84,7 @@
     .healthReportDetails {
         -webkit-filter: invert(100%);
     }
-    .icon-blue,
-    .icon-blue-anime,
-    img[src$="blue.png"] {
-        /* this makes the 'blue ball' green */
-        -webkit-filter: hue-rotate(245deg);
-    }
+
 
     .healthReportDetails img {
         -webkit-filter: invert(100%);
@@ -90,34 +97,9 @@
         border-color: #111;
     }
 
-    img.icon-hourglass {
-      content: @clock-image-16;
-    }
+    @import url('./parts/_icons.less');
 
-    .icon-stop {
-        content: @stop-build-image-16;
-    }
-    .icon-help.icon-sm {
-        content: @help-image-16;
-    }
-    .help {
-        border-color: @background-black;
-        background-color: @background-555;
-        color: @text-light;
-        padding-left: 56px;
-        background-image: @help-image-48;
-        background-repeat: no-repeat;
-        background-position: 4px center;
-        .from-plugin {
-            color: @white;
-        }
-    }
-    footer {
-        background: @background-black;
-        color: @text-light;
-        border-color: @background-333;
-        border-bottom: none;
-    }
+
     .greyed {
         color: #d1d1d1;
     }
@@ -129,9 +111,10 @@
         color: #6c0;
         font-weight: bold;
     }
-    #header {
-        background: @background-black;
+    .inverse {
+        color: @black;
     }
+
     .section-header {
         margin: 5px;
         padding: 10px;
@@ -254,42 +237,9 @@
     #search-box:hover {
         border-color: @blue;
     }
-    .inverse {
-        color: @black;
-    }
+
     @import url( './parts/_buttons.less');
-    .tabBar .tab a.addTab {}
-    .tabBar .tab a,
-    .tabBar .tab a.addTab {
-        position: relative;
-        display: block;
-        border: solid 1px @background-black;
-        border-bottom: none;
-        text-decoration: none;
-        color: @text-light;
-        padding: 7px 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        text-transform: uppercase;
-        margin: 0 5px 0 0;
-    }
-    .tabBar .tab a.addTab:hover,
-    .tabBar .tab a:hover {
-        border: solid 1px @blue;
-        border-bottom: none;
-        background: @blue;
-        opacity: 0.8;
-    }
-    .tabBar [type=radio]:checked ~ a {
-        border: solid 1px @blue;
-        border-bottom: none;
-        background: #4183C4;
-        color: @text-light;
-        font-weight: bold;
-        z-index: 2;
-        opacity: 1;
-        cursor: pointer;
-    }
+    @import url('./parts/_tabs.less');
 
     /* this is the trend timeline */
     .timeline-container {
