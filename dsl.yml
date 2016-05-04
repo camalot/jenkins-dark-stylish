@@ -1,11 +1,13 @@
 version: 1.0.{{build}}
-description: ''
+description: 'A Stylish dark theme for Jenkins'
 slack: "#notifications"
 topic:
   build:
-    - shell: 'echo "building"'
+    - shell: 'echo "building topic"'
   test:
 develop:
+  build:
+    - shell: 'echo "building develop"'
   # build:
   #   before:
   #   run:

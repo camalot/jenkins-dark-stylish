@@ -1,12 +1,13 @@
 @import url( './parts/_variables.less');
 @-moz-document domain("my-jenkins-ci-host.com") {
+     @import url('./parts/_keyframes.less');
+
     .bottom-sticker-inner,
     .top-sticker-inner body,
     html {
         background: @background-dark;
         color: @text-light;
     }
-
     #breadcrumbBar,
     #footer-container {
         background: @background-black;
@@ -32,9 +33,7 @@
         color: @blue;
         outline: none;
     }
-    @import url( './parts/_notifications.less');
-    @import url( './parts/_wtf.less');
-    @import url( './parts/_code-editor.less');
+
     .setting-input,
     input[type='password']:hover,
     input[type='text']:hover {
@@ -52,19 +51,35 @@
         border-radius: 0;
         box-shadow: none;
     }
+
+    footer {
+        background: @background-black;
+        color: @text-light;
+        border-color: @background-333;
+        border-bottom: none;
+    }
+    #header {
+        background: @background-black;
+    }
+
+
+
+    @import url( './parts/_notifications.less');
+    @import url( './parts/_wtf.less');
+    @import url( './parts/_code-editor.less');
+
     .bottom-sticker-edge {
+        /* hide the shadow on the bottom panel */
         display: none;
     }
+
+
     #menuSelector,
-    .healthReportDetails,
-    img.icon-hourglass {
+    .healthReportDetails {
         -webkit-filter: invert(100%);
     }
-    .icon-blue,
-    .icon-blue-anime,
-    img[src$="blue.png"] {
-        -webkit-filter: hue-rotate(245deg);
-    }
+
+
     .healthReportDetails img {
         -webkit-filter: invert(100%);
     }
@@ -75,30 +90,10 @@
     .repeated-chunk.hover {
         border-color: #111;
     }
-    .icon-stop {
-        content: @stop-build-image-16;
-    }
-    .icon-help.icon-sm {
-        content: @help-image-16;
-    }
-    .help {
-        border-color: @background-black;
-        background-color: @background-555;
-        color: @text-light;
-        padding-left: 56px;
-        background-image: @help-image-48;
-        background-repeat: no-repeat;
-        background-position: 4px center;
-        .from-plugin {
-            color: @white;
-        }
-    }
-    footer {
-        background: @background-black;
-        color: @text-light;
-        border-color: @background-333;
-        border-bottom: none;
-    }
+
+    @import url('./parts/_icons.less');
+
+
     .greyed {
         color: #d1d1d1;
     }
@@ -110,9 +105,10 @@
         color: #6c0;
         font-weight: bold;
     }
-    #header {
-        background: @background-black;
+    .inverse {
+        color: @black;
     }
+
     .section-header {
         margin: 5px;
         padding: 10px;
@@ -157,13 +153,13 @@
     }
     td.pane {}
     table.stripped tr:nth-child(even) {
-        background: #020202;
+        background: @background-light;
     }
     table.stripped-even tr:nth-child(even) {
-        background: #020202;
+        background: @background-light;
     }
     table.stripped-odd tr:nth-child(odd) {
-        background: #020202;
+        background: @background-light;
     }
     div.pane-header {}
     div.pane-header .collapse {}
@@ -235,40 +231,16 @@
     #search-box:hover {
         border-color: @blue;
     }
-    .inverse {
-        color: @black;
-    }
+
     @import url( './parts/_buttons.less');
-    .tabBar .tab a.addTab {}
-    .tabBar .tab a,
-    .tabBar .tab a.addTab {
-        position: relative;
-        display: block;
-        border: solid 1px @background-black;
-        border-bottom: none;
-        text-decoration: none;
-        color: @text-light;
-        padding: 7px 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-        text-transform: uppercase;
-        margin: 0 5px 0 0;
+    @import url('./parts/_tabs.less');
+
+    /* this is the trend timeline */
+    .timeline-container {
+      -webkit-filter: invert(80%);
     }
-    .tabBar .tab a.addTab:hover,
-    .tabBar .tab a:hover {
-        border: solid 1px @blue;
-        border-bottom: none;
-        background: @blue;
-        opacity: 0.8;
-    }
-    .tabBar [type=radio]:checked ~ a {
-        border: solid 1px @blue;
-        border-bottom: none;
-        background: #4183C4;
-        color: @text-light;
-        font-weight: bold;
-        z-index: 2;
-        opacity: 1;
-        cursor: pointer;
+    /* this is inside the timeline, so we invert it back to normal */
+    .timeline-container .timeline-event-icon > img {
+      -webkit-filter: invert(80%);
     }
 }

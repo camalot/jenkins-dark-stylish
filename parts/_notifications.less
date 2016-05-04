@@ -4,6 +4,8 @@
   color: @text-dark;
 }
 
+
+
 .warning {
     border: solid 1px darken(@background-warning, 10%);
     margin: 5px 10px;
@@ -41,6 +43,18 @@
     }
 }
 
+.help {
+    border-color: @background-black;
+    background-color: @background-555;
+    color: @text-light;
+    padding-left: 56px;
+    background-image: @help-image-48;
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    .from-plugin {
+        color: @white;
+    }
+}
 
 .changeset-message {
     background-color: #444;

@@ -128,8 +128,8 @@ div.CodeMirror-selected {
     color: @white !important;
 }
 .CodeMirror-focused div.CodeMirror-selected {
-  background: lighten(@blue,50%);
-  color: @white;
+    background: lighten(@blue,50%);
+    color: @white;
 }
 .CodeMirror-searching {
     background: #ffa;
@@ -137,80 +137,80 @@ div.CodeMirror-selected {
 }
 /* Default theme */
 .cm-s-default {
-  span {
-    &.cm-keyword {
-      color: @blue !important;
+    span {
+        &.cm-keyword {
+            color: @blue !important;
+        }
+        &.cm-atom {
+            color: #c50 !important;
+            font-weight: bolder !important;
+        }
+        &.cm-number {
+            color: #164;
+        }
+        &.cm-def {
+            color: #00f;
+        }
+        &.cm-variable {
+            color: @text-light !important;
+        }
+        &.cm-variable-2 {
+            color: darken(@text-light,10%) !important;
+        }
+        &.cm-variable-3 {
+            color: darken(@text-light,20%) !important;
+        }
+        &.cm-property {
+            color: #a40;
+        }
+        &.cm-operator {
+            color: @text-light !important;
+        }
+        &.cm-comment {
+            color: #666 !important;
+        }
+        &.cm-string {
+            color: @green !important;
+        }
+        &.cm-string-2 {
+            color: @green !important;
+        }
+        &.cm-meta {
+            color: darken(@white,25%);
+        }
+        &.cm-error {
+            color: @background-error;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+        &.cm-qualifier {
+            color: @text-light !important;
+        }
+        &.cm-builtin {
+            color: #30a;
+        }
+        &.cm-bracket {
+            color: #997;
+        }
+        &.cm-tag {
+            color: #170;
+        }
+        &.cm-attribute {
+            color: #00c;
+        }
+        &.cm-header {
+            color: @blue !important;
+        }
+        &.cm-quote {
+            color: #090;
+        }
+        &.cm-hr {
+            color: #999;
+        }
+        &.cm-link {
+            color: #00c;
+        }
     }
-    &.cm-atom {
-      color: #c50 !important;
-      font-weight: bolder !important;
-    }
-    &.cm-number {
-        color: #164;
-    }
-    &.cm-def {
-        color: #00f;
-    }
-    &.cm-variable {
-      color: @text-light !important;
-    }
-    &.cm-variable-2 {
-      color: darken(@text-light,10%) !important;
-    }
-    &.cm-variable-3 {
-      color: darken(@text-light,20%) !important;
-    }
-    &.cm-property {
-        color: #a40;
-    }
-    &.cm-operator {
-      color: @text-light !important;
-    }
-    &.cm-comment {
-      color: #666 !important;
-    }
-    &.cm-string {
-      color: @green !important;
-    }
-    &.cm-string-2 {
-      color: @green !important;
-    }
-    &.cm-meta {
-        color: darken(@white,25%);
-    }
-    &.cm-error {
-        color: @background-error;
-        text-decoration: underline;
-        text-decoration-style: wavy;
-    }
-    &.cm-qualifier {
-      color: @text-light !important;
-    }
-    &.cm-builtin {
-        color: #30a;
-    }
-    &.cm-bracket {
-        color: #997;
-    }
-    &.cm-tag {
-        color: #170;
-    }
-    &.cm-attribute {
-        color: #00c;
-    }
-    &.cm-header {
-      color: @blue !important;
-    }
-    &.cm-quote {
-        color: #090;
-    }
-    &.cm-hr {
-        color: #999;
-    }
-    &.cm-link {
-        color: #00c;
-    }
-  }
 }
 span.cm-negative {
     color: #d44;
@@ -243,16 +243,13 @@ div.CodeMirror span.CodeMirror-matchingbracket {
 div.CodeMirror span.CodeMirror-nonmatchingbracket {
     color: #f22;
 }
-
-
-
-
 div.textarea-handle {
     background-color: @background-555;
     background-image: none;
     border: solid 1px @background-black;
     margin-bottom: 10px;
 }
+
 .textarea-preview-container {
     text-indent: -66px;
     overflow: hidden;
@@ -297,14 +294,23 @@ div.textarea-handle {
         }
     }
 }
-
-
 .console-output {
-  // doesn't scroll automatically :(
-  // overflow: scroll;
-  // max-height: 800px;
-  background-color: @background-333;
-  border: solid 2px @black;
-  padding: 5px;
-  color: @white;
+    // doesn't scroll automatically :(
+    // overflow: scroll;
+    // max-height: 800px;
+    background-color: @background-333;
+    border: solid 2px @black;
+    padding: 5px;
+    color: @white;
+}
+
+
+#spinner img {
+    opacity: .5;
+    -webkit-filter: invert(100%);
+    content: @spinner-image-16;
+    -webkit-animation-name: spinner;
+    -webkit-animation-duration: 0.5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
 }

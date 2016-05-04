@@ -1,0 +1,34 @@
+@import url( './_variables.less');
+
+.tabBar .tab a.addTab {}
+.tabBar .tab a,
+.tabBar .tab a.addTab {
+    position: relative;
+    display: block;
+    border: solid 1px @background-black;
+    border-bottom: none;
+    text-decoration: none;
+    color: @text-light;
+    padding: 7px 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-transform: uppercase;
+    margin: 0 5px 0 0;
+}
+.tabBar .tab a.addTab:hover,
+.tabBar .tab a:hover {
+    border: solid 1px @blue;
+    border-bottom: none;
+    background: @blue;
+    opacity: 0.8;
+}
+.tabBar [type=radio]:checked ~ a {
+    border: solid 1px @blue;
+    border-bottom: none;
+    background: #4183C4;
+    color: @text-light;
+    font-weight: bold;
+    z-index: 2;
+    opacity: 1;
+    cursor: pointer;
+}
