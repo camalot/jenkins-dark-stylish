@@ -6,6 +6,8 @@ topic:
     - shell: 'echo "building"'
   test:
 develop:
+  build:
+    - shell: 'echo "building"'
   # build:
   #   before:
   #   run:

@@ -1,12 +1,19 @@
 @import url( './parts/_variables.less');
 @-moz-document domain("my-jenkins-ci-host.com") {
+     @-webkit-keyframes spinner{
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
     .bottom-sticker-inner,
     .top-sticker-inner body,
     html {
         background: @background-dark;
         color: @text-light;
     }
-
     #breadcrumbBar,
     #footer-container {
         background: @background-black;
