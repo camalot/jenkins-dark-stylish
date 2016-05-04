@@ -8,6 +8,31 @@
             -webkit-transform: rotate(360deg);
         }
     }
+
+    @keyframes pulse {
+      0% {
+        background-color: @background-black;
+      }
+      50% {
+        background-color: lighten(@background-black,25%);
+      }
+      100% {
+        background-color: darken(@background-black,25%);
+      }
+    }
+
+    @keyframes pulse-alt {
+      0% {
+        background-color: @background-light;
+      }
+      50% {
+        background-color: lighten(@background-light,25%);
+      }
+      100% {
+        background-color: darken(@background-light,25%);
+      }
+    }
+
     .bottom-sticker-inner,
     .top-sticker-inner body,
     html {
@@ -159,13 +184,13 @@
     }
     td.pane {}
     table.stripped tr:nth-child(even) {
-        background: #020202;
+        background: @background-light;
     }
     table.stripped-even tr:nth-child(even) {
-        background: #020202;
+        background: @background-light;
     }
     table.stripped-odd tr:nth-child(odd) {
-        background: #020202;
+        background: @background-light;
     }
     div.pane-header {}
     div.pane-header .collapse {}

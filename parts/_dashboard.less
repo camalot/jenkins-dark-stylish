@@ -1,5 +1,10 @@
 .dashboard {
   table#projectstatus {
+    .job-status-red-anime,
+    .job-status-yellow-anime,
+    .job-status-green-anime,
+    .job-status-blue-anime,
+    .job-status-nobuilt-anime,
     .job-status-red,
     .job-status-yellow,
     .job-status-green,
@@ -9,6 +14,27 @@
       td {
         font-size: 2em;
         vertical-align: middle;
+      }
+    }
+
+    &.stripped tr {
+      &.job-status-red-anime,
+      &.job-status-yellow-anime,
+      &.job-status-green-anime,
+      &.job-status-blue-anime,
+      &.job-status-nobuilt-anime {
+        animation: pulse 5s infinite;
+      }
+    }
+
+    &.stripped-odd tr:nth-child(odd),
+    &.stripped tr:nth-child(even) {
+      &.job-status-red-anime,
+      &.job-status-yellow-anime,
+      &.job-status-green-anime,
+      &.job-status-blue-anime,
+      &.job-status-nobuilt-anime {
+        animation: pulse-alt 5s infinite;
       }
     }
   }
