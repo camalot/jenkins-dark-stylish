@@ -39,9 +39,7 @@
         color: @blue;
         outline: none;
     }
-    @import url( './parts/_notifications.less');
-    @import url( './parts/_wtf.less');
-    @import url( './parts/_code-editor.less');
+
     .setting-input,
     input[type='password']:hover,
     input[type='text']:hover {
@@ -59,19 +57,28 @@
         border-radius: 0;
         box-shadow: none;
     }
+
+    @import url( './parts/_notifications.less');
+    @import url( './parts/_wtf.less');
+    @import url( './parts/_code-editor.less');
+
     .bottom-sticker-edge {
+        /* hide the shadow on the bottom panel */
         display: none;
     }
+
+
     #menuSelector,
-    .healthReportDetails,
-    img.icon-hourglass {
+    .healthReportDetails {
         -webkit-filter: invert(100%);
     }
     .icon-blue,
     .icon-blue-anime,
     img[src$="blue.png"] {
+        /* this makes the 'blue ball' green */
         -webkit-filter: hue-rotate(245deg);
     }
+
     .healthReportDetails img {
         -webkit-filter: invert(100%);
     }
@@ -82,6 +89,11 @@
     .repeated-chunk.hover {
         border-color: #111;
     }
+
+    img.icon-hourglass {
+      content: @clock-image-16;
+    }
+
     .icon-stop {
         content: @stop-build-image-16;
     }
@@ -277,5 +289,14 @@
         z-index: 2;
         opacity: 1;
         cursor: pointer;
+    }
+
+    /* this is the trend timeline */
+    .timeline-container {
+      -webkit-filter: invert(80%);
+    }
+    /* this is inside the timeline, so we invert it back to normal */
+    .timeline-container .timeline-event-icon > img {
+      -webkit-filter: invert(80%);
     }
 }
