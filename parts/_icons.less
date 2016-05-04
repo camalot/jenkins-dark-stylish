@@ -2,7 +2,6 @@
 
 
 .icon-blue,
-.icon-blue-anime,
 img[src$="blue.png"] {
     /* this makes the 'blue ball' green */
     -webkit-filter: hue-rotate(245deg);
@@ -30,4 +29,100 @@ img.icon-hourglass {
   height: 16px;
   width: 16px;
   opacity: 0.6;
+}
+
+
+.spinning-build-image {
+  margin-right: 20px;
+  -webkit-animation-name: spinner;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+/* swap out the animation images for new ones */
+img.icon-yellow-anime {
+  .spinning-build-image();
+  opacity: .8;
+  &.icon-xlg {
+    content: @spinner-yellow-image-48;
+  }
+  &.icon-lg {
+    content: @spinner-yellow-image-32;
+  }
+  &.icon-sm {
+    content: @spinner-yellow-image-16;
+  }
+}
+/* swap out the animation images for new ones */
+img.icon-blue-anime {
+  .spinning-build-image();
+  opacity: .8;
+  &.icon-xlg {
+    content: @spinner-green-image-48;
+  }
+  &.icon-lg {
+    content: @spinner-green-image-32;
+  }
+  &.icon-sm {
+    content: @spinner-green-image-16;
+  }
+}
+/* swap out the animation images for new ones */
+img.icon-red-anime {
+  .spinning-build-image();
+  opacity: .6;
+  &.icon-xlg {
+    content: @spinner-red-image-48;
+  }
+  &.icon-lg {
+    content: @spinner-red-image-32;
+  }
+  &.icon-sm {
+    content: @spinner-red-image-16;
+  }
+}
+/* swap out the animation images for new ones */
+img.icon-grey-anime {
+  .spinning-build-image();
+  opacity: .8;
+  &.icon-xlg {
+    content: @spinner-grey-image-48;
+  }
+  &.icon-lg {
+    content: @spinner-grey-image-32;
+  }
+  &.icon-sm {
+    content: @spinner-grey-image-16;
+  }
+}
+
+img[src$='/16x16/warning.gif'] {
+  content: @warning-image-16;
+}
+img[src$='/24x24/warning.gif'] {
+  content: @warning-image-24;
+}
+img[src$='/48x48/warning.gif'] {
+  content: @warning-image-48;
+}
+
+img[src$='/16x16/error.gif'] {
+  content: @error-image-16;
+}
+img[src$='/24x24/error.gif'] {
+  content: @error-image-24;
+}
+img[src$='/48x48/error.gif'] {
+  content: @error-image-48;
+}
+
+img[src$='/16x16/accept.png'] {
+  content: @success-image-16;
+}
+img[src$='/24x24/accept.png'] {
+  content: @success-image-24;
+}
+img[src$='/48x48/accept.png'] {
+  content: @success-image-48;
 }
