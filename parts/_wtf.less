@@ -1,0 +1,34 @@
+@import url('./_variables.less');
+
+/* this is a fix for the missing img on the script console... it drives me insane */
+#main-panel > h1 > img[src$='/48x48/'] {
+    content: @terminal-image-48;
+}
+/* this fixes the credential menu item without an image */
+img[src$='/48x48/icon-credentials-credentials'] {
+    content: @credentials-image-48;
+}
+img[src$='none.gif'] {
+    display: none;
+}
+
+/* WTF Jenkins! */
+table[border="1"] {
+    border: solid 1 @background-black !important;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+table[border="1"] td {
+    border: solid 0 @background-black !important;
+    margin: 0;
+    padding: 5px;
+}
+tr[bgcolor="#0099EE"] {
+    background-color: @blue !important;
+}
+tr[bgcolor="bbbbb"]:nth-child(even) {
+    background-color: @background-black !important;
+}
+tr[bgcolor="bbbbb"]:nth-child(odd) {
+    background-color: #555 !important;
+}

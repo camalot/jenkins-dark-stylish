@@ -1,14 +1,14 @@
 @import url( './parts/_variables.less');
 @-moz-document domain("my-jenkins-ci-host.com") {
-    body,
+    .bottom-sticker-inner,
+    .top-sticker-inner body,
     html {
         background: @background-dark;
         color: @text-light;
     }
+
     #breadcrumbBar,
-    #footer-container,
-    .bottom-sticker-inner,
-    .top-sticker-inner {
+    #footer-container {
         background: @background-black;
         color: @text-light;
     }
@@ -32,55 +32,9 @@
         color: @blue;
         outline: none;
     }
-    .warning {
-        border: solid 1px darken(@background-warning, 10%);
-        margin: 5px 10px;
-        padding: 0 0 0 50px;
-        display: block;
-        background-color: @background-warning;
-        background-image: @warning-image-48;
-        min-height: 50px;
-        vertical-align: middle;
-        color: @text-dark;
-        form {
-            color: @text-dark;
-        }
-        a {
-            color: @background-333;
-            text-decoration: underline;
-        }
-    }
-    .error {
-        border: solid 1px darken(@background-error, 10%);
-        margin: 5px 10px;
-        padding: 0 0 0 50px;
-        display: block;
-        background-color: @background-error;
-        background-image: @error-image-48;
-        min-height: 50px;
-        vertical-align: middle;
-        form {
-            color: @text-light;
-        }
-        a {
-            color: @blue;
-            text-decoration: underline;
-        }
-    }
-    /* this is a fix for the missing img on the script console... it drives me insane */
-    #main-panel > h1 > img[src$='/48x48/'] {
-        content: @terminal-image-48;
-    }
-    /* this fixes the credential menu item without an image */
-    img[src$='/48x48/icon-credentials-credentials'] {
-        content: @credentials-image-48;
-    }
-    img[src$='none.gif'] {
-        display: none;
-    }
-
-    @import url('./parts/_code-editor.less');
-
+    @import url( './parts/_notifications.less');
+    @import url( './parts/_wtf.less');
+    @import url( './parts/_code-editor.less');
     .setting-input,
     input[type='password']:hover,
     input[type='text']:hover {
@@ -144,56 +98,6 @@
         color: @text-light;
         border-color: @background-333;
         border-bottom: none;
-    }
-    div.textarea-handle {
-        background-color: @background-555;
-        background-image: none;
-        border: solid 1px @background-black;
-        margin-bottom: 10px;
-    }
-    .textarea-preview-container {
-        text-indent: -66px;
-        overflow: hidden;
-        .textarea-preview {
-            text-indent: 0;
-            background-color: @background-dark;
-            border: solid 1px @background-black;
-            color: @text-light;
-        }
-        a.textarea-show-preview {
-            display: inline-block !important;
-            overflow: hidden;
-            text-indent: -9999px;
-            &::before {
-                content: 'Preview [';
-                float: left;
-                font-size: 18px;
-                line-height: 20px;
-                margin: 0 4px 0 0;
-                text-indent: 0;
-            }
-            &::after {
-                content: 'Show |';
-                float: left;
-                font-size: 18px;
-                line-height: 20px;
-                margin: 0;
-                text-indent: 0;
-            }
-        }
-        a.textarea-hide-preview {
-            display: inline-block !important;
-            overflow: hidden;
-            text-indent: -9999px;
-            &::after {
-                content: 'Hide ]';
-                float: left;
-                font-size: 18px;
-                line-height: 20px;
-                margin: 0;
-                text-indent: 0;
-            }
-        }
     }
     .greyed {
         color: #d1d1d1;
@@ -304,21 +208,20 @@
         background-color: #4183C4;
         color: @text-light;
     }
-    @import url('./parts/_dashboard.less');
-    @import url('./parts/_buildHistory.less');
-    @import url('./parts/_tasks.less');
+    @import url( './parts/_dashboard.less');
+    @import url( './parts/_buildHistory.less');
+    @import url( './parts/_tasks.less');
     #buildQueue .pane[colspan='2'] {
         text-align: center;
         padding: 10px 0;
         color: #999;
     }
-    @import url('./parts/_login.less');
+    @import url( './parts/_login.less');
     .setting-name {
         text-transform: capitalize;
         vertical-align: middle;
     }
     .setting-name::after {}
-
     #filter-box,
     #search-box {
         border: solid 1px @background-black;
@@ -335,51 +238,7 @@
     .inverse {
         color: @black;
     }
-    #description-link,
-    #jenkins .yui-button button {
-        font-size: 12px;
-        padding: 3px 20px;
-        border-radius: 1px;
-        border: 1px solid #cccccc;
-        background-color: #e0e0e0;
-        font-family: Helvetica, Arial, sans-serif;
-        color: #505050;
-        font-weight: bold;
-    }
-    #description-link,
-    #jenkins .yui-button.primary button {
-        background-color: #4b758b;
-        color: @text-light;
-        border: 1px solid #5788a1;
-    }
-    #description-link:hover,
-    #jenkins .yui-button.primary .hover,
-    #jenkins .yui-button.primary button:hover {
-        background-color: #3f6275;
-        border: 1px solid #5788a1;
-    }
-    #disable-project .yui-button.primary button {
-        background-color: #c9893b;
-        border-color: #B07022;
-        color: #111;
-        font-weight: bold;
-    }
-    #disable-project .yui-button.primary button:hover {
-        background-color: #c9893b;
-        border-color: #B07022;
-        opacity: 0.9;
-    }
-    #description-link {
-        padding: 8px 20px;
-        display: inline;
-        position: relative;
-        line-height: 0;
-        text-transform: capitalize;
-        z-index: 999 !important;
-    }
-    #description-link img {
-        margin-right: 5px;
-    }
+    @import url( './parts/_buttons.less');
     .tabBar .tab a.addTab {}
     .tabBar .tab a,
     .tabBar .tab a.addTab {
@@ -411,30 +270,5 @@
         z-index: 2;
         opacity: 1;
         cursor: pointer;
-    }
-    .changeset-message {
-        background-color: #444;
-        border-color: @background-black;
-        color: @text-light;
-    }
-    /* WTF Jenkins! */
-    table[border="1"] {
-        border: solid 1 @background-black !important;
-        border-spacing: 0;
-        border-collapse: collapse;
-    }
-    table[border="1"] td {
-        border: solid 0 @background-black !important;
-        margin: 0;
-        padding: 5px;
-    }
-    tr[bgcolor="#0099EE"] {
-        background-color: @blue !important;
-    }
-    tr[bgcolor="bbbbb"]:nth-child(even) {
-        background-color: @background-black !important;
-    }
-    tr[bgcolor="bbbbb"]:nth-child(odd) {
-        background-color: #555 !important;
     }
 }

@@ -1,0 +1,40 @@
+@import url('./_variables.less');
+
+.jenkins-button (@bgcolor: @blue, @textcolor: @text-light) {
+  font-size: 12px;
+  padding: 3px 20px;
+  border-radius: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+
+  background-color: @bgcolor;
+  color: @textcolor;
+  border: 1px solid darken(@bgcolor,10%);
+  .hover,
+  &:hover {
+    background-color: darken(@bgcolor,10%);
+    border: 1px solid darken(@bgcolor,15%);
+  }
+}
+
+#description-link,
+#jenkins .yui-button button {
+  .jenkins-button(@blue, @text-light);
+}
+
+#disable-project .yui-button.primary button {
+  .jenkins-button(@orange, @text-dark);
+  font-weight: bold;
+}
+
+
+#description-link {
+    padding: 8px 20px;
+    display: inline;
+    position: relative;
+    line-height: 0;
+    text-transform: capitalize;
+}
+#description-link img {
+    margin-right: 5px;
+}

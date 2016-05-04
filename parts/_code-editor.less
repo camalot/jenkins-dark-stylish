@@ -243,3 +243,68 @@ div.CodeMirror span.CodeMirror-matchingbracket {
 div.CodeMirror span.CodeMirror-nonmatchingbracket {
     color: #f22;
 }
+
+
+
+
+div.textarea-handle {
+    background-color: @background-555;
+    background-image: none;
+    border: solid 1px @background-black;
+    margin-bottom: 10px;
+}
+.textarea-preview-container {
+    text-indent: -66px;
+    overflow: hidden;
+    .textarea-preview {
+        text-indent: 0;
+        background-color: @background-dark;
+        border: solid 1px @background-black;
+        color: @text-light;
+    }
+    a.textarea-show-preview {
+        display: inline-block !important;
+        overflow: hidden;
+        text-indent: -9999px;
+        &::before {
+            content: 'Preview [';
+            float: left;
+            font-size: 18px;
+            line-height: 20px;
+            margin: 0 4px 0 0;
+            text-indent: 0;
+        }
+        &::after {
+            content: 'Show |';
+            float: left;
+            font-size: 18px;
+            line-height: 20px;
+            margin: 0;
+            text-indent: 0;
+        }
+    }
+    a.textarea-hide-preview {
+        display: inline-block !important;
+        overflow: hidden;
+        text-indent: -9999px;
+        &::after {
+            content: 'Hide ]';
+            float: left;
+            font-size: 18px;
+            line-height: 20px;
+            margin: 0;
+            text-indent: 0;
+        }
+    }
+}
+
+
+.console-output {
+  // doesn't scroll automatically :(
+  // overflow: scroll;
+  // max-height: 800px;
+  background-color: @background-333;
+  border: solid 2px @black;
+  padding: 5px;
+  color: @white;
+}
