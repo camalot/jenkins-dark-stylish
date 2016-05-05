@@ -3,10 +3,13 @@ description: 'A Stylish dark theme for Jenkins'
 slack: "#notifications"
 topic:
   build:
-    - shell: 'echo "building topic"'
+    before:
+    run:
+      - shell: 'echo "building topic"'
 develop:
   build:
-    - shell: 'echo "building develop"'
+    run:
+      - shell: 'echo "building develop"'
   # build:
   #   before:
   #   run:
@@ -17,7 +20,8 @@ develop:
   #   after:
 master:
   build:
-    - shell: 'echo "building master"'
+    run:
+      - shell: 'echo "building master"'
   watch:
     projects:
       - ./develop-to-master

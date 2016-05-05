@@ -50,6 +50,9 @@ img.icon-yellow-anime {
   &.icon-lg {
     content: @spinner-yellow-image-32;
   }
+  &.icon-md {
+    content: @spinner-yellow-image-24;
+  }
   &.icon-sm {
     content: @spinner-yellow-image-16;
   }
@@ -63,6 +66,9 @@ img.icon-blue-anime {
   }
   &.icon-lg {
     content: @spinner-green-image-32;
+  }
+  &.icon-md {
+    content: @spinner-green-image-24;
   }
   &.icon-sm {
     content: @spinner-green-image-16;
@@ -78,22 +84,31 @@ img.icon-red-anime {
   &.icon-lg {
     content: @spinner-red-image-32;
   }
+  &.icon-md {
+    content: @spinner-red-image-24;
+  }
   &.icon-sm {
     content: @spinner-red-image-16;
   }
 }
 /* swap out the animation images for new ones */
-img.icon-nobuilt-anime {
-  .spinning-build-image();
-  opacity: .8;
-  &.icon-xlg {
-    content: @spinner-grey-image-48;
-  }
-  &.icon-lg {
-    content: @spinner-grey-image-32;
-  }
-  &.icon-sm {
-    content: @spinner-grey-image-16;
+img {
+  &.icon-grey-anime,
+  &.icon-nobuilt-anime {
+    .spinning-build-image();
+    opacity: .8;
+    &.icon-xlg {
+      content: @spinner-grey-image-48;
+    }
+    &.icon-lg {
+      content: @spinner-grey-image-32;
+    }
+    &.icon-md {
+      content: @spinner-grey-image-24;
+    }
+    &.icon-sm {
+      content: @spinner-grey-image-16;
+    }
   }
 }
 
