@@ -1,0 +1,65 @@
+@import url( './_variables.less');
+
+#notification-bar {
+  color: @text-dark;
+}
+
+p.info {
+  color: @text-light;
+}
+
+.warning {
+    border: solid 1px darken(@background-warning, 10%);
+    margin: 5px 10px;
+    padding: 0 0 0 50px;
+    display: block;
+    background-color: @background-warning;
+    background-image: @warning-image-48;
+    min-height: 50px;
+    vertical-align: middle;
+    color: @text-dark;
+    form {
+        color: @text-dark;
+    }
+    a {
+        color: @background-333;
+        text-decoration: underline;
+    }
+}
+.error {
+    border: solid 1px darken(@background-error, 10%);
+    margin: 5px 10px;
+    padding: 0 0 0 50px;
+    display: block;
+    background-color: @background-error;
+    color: @text-light;
+    background-image: @error-image-48;
+    min-height: 50px;
+    vertical-align: middle;
+    form {
+        color: @text-light;
+    }
+    a {
+        color: @blue;
+        text-decoration: underline;
+    }
+}
+
+.help {
+    border-color: @background-black;
+    background-color: @background-555;
+    color: @text-light;
+    padding-left: 56px;
+    background-image: @help-image-48;
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    .from-plugin {
+        color: @white;
+    }
+}
+
+.changeset-message {
+    background-color: #444;
+    border-color: @background-black;
+    color: @text-light;
+}

@@ -1,0 +1,34 @@
+@import url( './_variables.less');
+
+@keyframes spinner{
+   from {
+       -webkit-transform: rotate(0deg);
+   }
+   to {
+       -webkit-transform: rotate(360deg);
+   }
+}
+
+@keyframes pulse {
+ 0% {
+   background-color: @background-black;
+ }
+ 50% {
+   background-color: lighten(@background-black,25%);
+ }
+ 100% {
+   background-color: darken(@background-black,25%);
+ }
+}
+
+@keyframes pulse-alt {
+ 0% {
+   background-color: @background-light;
+ }
+ 50% {
+   background-color: lighten(@background-light,25%);
+ }
+ 100% {
+   background-color: darken(@background-light,25%);
+ }
+}

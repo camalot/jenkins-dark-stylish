@@ -1,0 +1,28 @@
+version: 1.0.{{build}}
+description: 'A Stylish dark theme for Jenkins'
+slack: "#notifications"
+topic:
+  build:
+    before:
+    run:
+      - shell: 'echo "building topic"'
+develop:
+  build:
+    run:
+      - shell: 'echo "building develop"'
+  # build:
+  #   before:
+  #   run:
+  #   after:
+  # test:
+  #   before:
+  #   run:
+  #   after:
+master:
+  build:
+    run:
+      - shell: 'echo "building master"'
+  watch:
+    projects:
+      - ./develop-to-master
+    threshold: SUCCESS
