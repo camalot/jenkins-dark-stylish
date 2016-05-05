@@ -40,6 +40,16 @@ img.icon-hourglass {
   -webkit-animation-timing-function: linear;
 }
 
+.build-rss-links {
+  .build-rss-all-icon,
+  .build-rss-failed-icon {
+    img {
+      content: @feed-image-16;
+      vertical-align: text-bottom;
+    }
+  }
+}
+
 /* swap out the animation images for new ones */
 img.icon-yellow-anime {
   .spinning-build-image();
