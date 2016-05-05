@@ -129,42 +129,9 @@
     }
     @import url("./parts/_breadcrumbs.less");
     @import url("./parts/_side-panel.less");
-    /* pane */
-    .pane-frame {
-        border: solid 1px #333;
-        border-radius: 0;
-    }
-    .pane-footer,
-    .pane-header {
-        background-color: @background-black;
-        border: solid 1px #020202;
-        color: #cecece;
-    }
-    .pane-header {}
-    .pane-footer {}
-    .pane td {
-        color: #cecece;
-    }
-    table.pane {
-        border: 1px @background-dark solid;
-        color: #cecece;
-    }
-    td.pane {}
-    table.stripped tr:nth-child(even) {
-        background: @background-light;
-    }
-    table.stripped-even tr:nth-child(even) {
-        background: @background-light;
-    }
-    table.stripped-odd tr:nth-child(odd) {
-        background: @background-light;
-    }
-    div.pane-header {}
-    div.pane-header .collapse {}
-    th.pane {}
-    /* executors */
-    #executors th.pane {}
-    #executors th.pane a {}
+    @import url("./parts/_main-panel.less");
+
+
     /* bigtable */
     .bigtable tr {
         border: 1px solid @background-dark;

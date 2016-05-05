@@ -1,9 +1,16 @@
 @import url( './_variables.less');
-#side-panel {
+
+#main-panel {
     background: @background-dark;
-    // position: fixed;
-    // overflow-y: auto;
-    // overflow-x: visible;
+    .pane-frame {
+        border: solid 1px @background-333;
+        border-radius: 0;
+        &.mouseover,
+        &:hover {
+            border: solid 1px @background-333;
+        }
+    }
+
     .pane-frame {
         border: solid 1px @background-333;
         border-radius: 0;
@@ -40,7 +47,5 @@
     div.pane-header {}
     div.pane-header .collapse {}
     th.pane {}
-    /* executors */
-    #executors th.pane {}
-    #executors th.pane a {}
+
 }

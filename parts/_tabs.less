@@ -5,7 +5,7 @@
 .tabBar .tab a.addTab {
     position: relative;
     display: block;
-    border: solid 1px @background-black;
+    border: solid 1px @background-333;
     border-bottom: none;
     text-decoration: none;
     color: @text-light;
@@ -17,16 +17,17 @@
 }
 .tabBar .tab a.addTab:hover,
 .tabBar .tab a:hover {
-    border: solid 1px @blue;
+    border: solid 1px darken(@blue,15%);
     border-bottom: none;
-    background: @blue;
-    opacity: 0.8;
+    background: darken(@blue,15%);
+    color: @white;
+    opacity: 1;
 }
 .tabBar [type=radio]:checked ~ a {
     border: solid 1px @blue;
     border-bottom: none;
-    background: #4183C4;
-    color: @text-light;
+    background: @blue;
+    color: @white;
     font-weight: bold;
     z-index: 2;
     opacity: 1;
