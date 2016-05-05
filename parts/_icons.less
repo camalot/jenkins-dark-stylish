@@ -1,11 +1,5 @@
 @import url( './_variables.less');
 
-
-.icon-blue,
-img[src$="blue.png"] {
-    /* this makes the 'blue ball' green */
-    -webkit-filter: hue-rotate(245deg);
-}
 img.icon-hourglass {
   content: @clock-image-16;
 }
@@ -33,11 +27,56 @@ img.icon-hourglass {
 
 
 .spinning-build-image {
-  margin-right: 20px;
   -webkit-animation-name: spinner;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
+}
+
+.rss-image {
+  content: @feed-image-16;
+  vertical-align: text-bottom;
+}
+
+.build-rss-links {
+  .build-rss-all-icon,
+  .build-rss-failed-icon {
+    img {
+      .rss-image();
+    }
+  }
+}
+
+img[src$="/images/atom.gif"] {
+  .rss-image();
+}
+.icon-health-00to19,
+.icon-health-20to39,
+.icon-health-40to59,
+.icon-health-60to79,
+.icon-health-80plus,
+.icon-yellow-anime,
+.icon-yellow,
+.icon-nobuilt-anime,
+.icon-nobuilt,
+.icon-grey-anime,
+.icon-grey,
+.icon-blue-anime,
+.icon-blue,
+.icon-red-anime,
+.icon-red {
+  &.icon-xlg {
+    margin-right: 20px;
+  }
+  &.icon-lg {
+    margin-right: 15px;
+  }
+  &.icon-md {
+    margin-right: 10px;
+  }
+  &.icon-sm {
+    margin-right: 5px;
+  }
 }
 
 /* swap out the animation images for new ones */
@@ -50,8 +89,27 @@ img.icon-yellow-anime {
   &.icon-lg {
     content: @spinner-yellow-image-32;
   }
+  &.icon-md {
+    content: @spinner-yellow-image-24;
+  }
   &.icon-sm {
     content: @spinner-yellow-image-16;
+  }
+}
+
+img.icon-yellow {
+  opacity: .8;
+  &.icon-xlg {
+    content: @yellow-image-48;
+  }
+  &.icon-lg {
+    content: @yellow-image-32;
+  }
+  &.icon-md {
+    content: @yellow-image-24;
+  }
+  &.icon-sm {
+    content: @yellow-image-16;
   }
 }
 /* swap out the animation images for new ones */
@@ -64,8 +122,26 @@ img.icon-blue-anime {
   &.icon-lg {
     content: @spinner-green-image-32;
   }
+  &.icon-md {
+    content: @spinner-green-image-24;
+  }
   &.icon-sm {
     content: @spinner-green-image-16;
+  }
+}
+img.icon-blue {
+  opacity: .8;
+  &.icon-xlg {
+    content: @green-image-48;
+  }
+  &.icon-lg {
+    content: @green-image-32;
+  }
+  &.icon-md {
+    content: @green-image-24;
+  }
+  &.icon-sm {
+    content: @green-image-16;
   }
 }
 /* swap out the animation images for new ones */
@@ -78,22 +154,140 @@ img.icon-red-anime {
   &.icon-lg {
     content: @spinner-red-image-32;
   }
+  &.icon-md {
+    content: @spinner-red-image-24;
+  }
   &.icon-sm {
     content: @spinner-red-image-16;
   }
 }
-/* swap out the animation images for new ones */
-img.icon-grey-anime {
-  .spinning-build-image();
+img.icon-red {
   opacity: .8;
   &.icon-xlg {
-    content: @spinner-grey-image-48;
+    content: @red-image-48;
   }
   &.icon-lg {
-    content: @spinner-grey-image-32;
+    content: @red-image-32;
+  }
+  &.icon-md {
+    content: @red-image-24;
   }
   &.icon-sm {
-    content: @spinner-grey-image-16;
+    content: @red-image-16;
+  }
+}
+/* swap out the animation images for new ones */
+img {
+  &.icon-grey-anime,
+  &.icon-nobuilt-anime {
+    .spinning-build-image();
+    opacity: .8;
+    &.icon-xlg {
+      content: @spinner-grey-image-48;
+    }
+    &.icon-lg {
+      content: @spinner-grey-image-32;
+    }
+    &.icon-md {
+      content: @spinner-grey-image-24;
+    }
+    &.icon-sm {
+      content: @spinner-grey-image-16;
+    }
+  }
+}
+img {
+  &.icon-grey,
+  &.icon-nobuilt {
+    opacity: .8;
+    &.icon-xlg {
+      content: @grey-image-48;
+    }
+    &.icon-lg {
+      content: @grey-image-32;
+    }
+    &.icon-md {
+      content: @grey-image-24;
+    }
+    &.icon-sm {
+      content: @grey-image-16;
+    }
+  }
+}
+
+// weather
+img.icon-health-00to19 {
+  &.icon-xlg {
+    content: @health-image-00to19-48;
+  }
+  &.icon-lg {
+    content: @health-image-00to19-32;
+  }
+  &.icon-md {
+    content: @health-image-00to19-24;
+  }
+  &.icon-sm {
+    content: @health-image-00to19-16;
+  }
+}
+
+img.icon-health-20to39 {
+  &.icon-xlg {
+    content: @health-image-20to39-48;
+  }
+  &.icon-lg {
+    content: @health-image-20to39-32;
+  }
+  &.icon-md {
+    content: @health-image-20to39-24;
+  }
+  &.icon-sm {
+    content: @health-image-20to39-16;
+  }
+}
+
+img.icon-health-40to59 {
+  &.icon-xlg {
+    content: @health-image-40to59-48;
+  }
+  &.icon-lg {
+    content: @health-image-40to59-32;
+  }
+  &.icon-md {
+    content: @health-image-40to59-24;
+  }
+  &.icon-sm {
+    content: @health-image-40to59-16;
+  }
+}
+
+img.icon-health-60to79 {
+  &.icon-xlg {
+    content: @health-image-60to79-48;
+  }
+  &.icon-lg {
+    content: @health-image-60to79-32;
+  }
+  &.icon-md {
+    content: @health-image-60to79-24;
+  }
+  &.icon-sm {
+    content: @health-image-60to79-16;
+  }
+}
+
+img.icon-health-80plus {
+  &.icon-xlg {
+    content: @health-image-80plus-48;
+  }
+  &.icon-lg {
+    content: @health-image-80plus-32;
+  }
+  &.icon-md {
+    content: @health-image-80plus-24;
+  }
+  &.icon-sm {
+    content: @health-image-80plus-16;
   }
 }
 
