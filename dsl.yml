@@ -4,7 +4,6 @@ slack: "#notifications"
 topic:
   build:
     - shell: 'echo "building topic"'
-  test:
 develop:
   build:
     - shell: 'echo "building develop"'
@@ -17,6 +16,8 @@ develop:
   #   run:
   #   after:
 master:
+  build:
+    - shell: 'echo "building master"'
   watch:
     projects:
       - ./develop-to-master
