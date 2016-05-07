@@ -76,6 +76,35 @@ img[src$="search.png"] {
   }
 }
 
+.icon-save {
+  &.icon-xlg {
+    content: @save-image-48;
+  }
+  &.icon-lg {
+    content: @save-image-32;
+  }
+  &.icon-md {
+    content: @save-image-24;
+  }
+  &.icon-sm {
+    content: @save-image-16;
+  }
+}
+img[src$="save.png"] {
+  &[width="48"] {
+    content: @save-image-48;
+  }
+  &[width="32"] {
+    content: @save-image-32;
+  }
+  &[width="24"] {
+    content: @save-image-24;
+  }
+  &[width="16"] {
+    content: @save-image-16;
+  }
+}
+
 .icon-clock-anime,
 .icon-clock {
   &.icon-xlg {
@@ -88,6 +117,20 @@ img[src$="search.png"] {
     content: @gear-image-24;
   }
   &.icon-sm {
+    content: @gear-image-16;
+  }
+}
+img[src$="clock.png"] {
+  &[width="48"] {
+    content: @gear-image-48;
+  }
+  &[width="48"] {
+    content: @gear-image-32;
+  }
+  &[width="48"] {
+    content: @gear-image-24;
+  }
+  &[width="16"] {
     content: @gear-image-16;
   }
 }
