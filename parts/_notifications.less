@@ -8,6 +8,28 @@ p.info {
   color: @text-light;
 }
 
+#hoverNotification {
+  background-color: darken(@background-light, 20%);
+  border: solid 1px darken(@background-light, 30%);
+  color: @text-light;
+}
+
+.call-to-action {
+  display: block;
+  text-align: center;
+  font-size: 1.6em;
+  background-color: @blue;
+  border: solid 1px darken(@blue,20%);
+  border-radius: 0;
+
+  a {
+    color: @text-dark;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: @text-dark;
+  }
+}
+
 .warning {
     border: solid 1px darken(@background-warning, 10%);
     margin: 5px 10px;
