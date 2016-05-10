@@ -1,5 +1,9 @@
 # jenkins-dark [![Build status](https://ci.appveyor.com/api/projects/status/14lnufroy4v83xjk?svg=true)](https://ci.appveyor.com/project/camalot/jenkins-dark-stylish)
-A stylish for Jenkins to give a dark theme
+A stylish for Jenkins to give a dark theme.
+
+```
+NOTE: This has not been tested with Jenkins 2.x.
+```
 
 You will need to add the domains that you want this to apply to yourself.
 
