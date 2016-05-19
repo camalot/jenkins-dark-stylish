@@ -5,9 +5,9 @@ environment:
   nodejs_version: 5.11.0
 install:
 - ps: Install-Product node $env:nodejs_version x64
-- cmd: npm install -g grunt-cli
-- cmd: npm install -g less
-- cmd: npm install -g less-plugin-clean-css
+- cmd: npm install grunt-cli
+- cmd: npm install less
+- cmd: npm install less-plugin-clean-css
 - cmd: npm update -g npm
 - cmd: npm install
 - ps: |
