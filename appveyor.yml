@@ -30,13 +30,13 @@ build_script:
 - cmd: xcopy .\dist\*.min.css .\plugin\src\main\webapp\ /h /i /c /k /y
 - ps: Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
 - ps: |
-    if ( (Test-Path -Path ".\plugin\target") ) {
-      Remove-Item -Path '.\plugin\target' | Out-Null;
+    if ( (Test-Path -Path "${env:APPVEYOR_BUILD_FOLDER}\plugin\target") ) {
+      Remove-Item -Path '${env:APPVEYOR_BUILD_FOLDER}\plugin\target' | Out-Null;
     }
 - cmd: |
     cd plugin
     mvn package
-- ps: '& xcopy "${env:APPVEYOR_BUILD_FOLDER}\\plugin\\target\\*.hpi" "${env:APPVEYOR_BUILD_FOLDER}\\dist\\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi" /h /c /k /y'
+- ps: '& xcopy "${env:APPVEYOR_BUILD_FOLDER}\\plugin\\target\\jenkins-dark-theme.hpi" "${env:APPVEYOR_BUILD_FOLDER}\\dist\\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi" /h /c /k /y'
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
