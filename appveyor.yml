@@ -8,6 +8,7 @@ install:
 - cmd: npm install -g grunt-cli
 - cmd: npm install -g less
 - cmd: npm install -g less-plugin-clean-css
+- cmd: npm update -g npm
 - cmd: npm install
 - ps: |
     $mvnVersion = '3.2.5'
