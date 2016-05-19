@@ -30,11 +30,13 @@ build_script:
 - cmd: xcopy .\dist\*.min.css .\plugin\src\main\webapp\ /h /i /c /k /y
 - ps: |
     Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
-    $target = "${env:APPVEYOR_BUILD_FOLDER}\plugin\target";
+    $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
+    $target = Join-Path -Path $plugin -ChildPath target;
     if ( (Test-Path -Path $target) ) {
       Remove-Item -Path $target | Out-Null;
     }
-    Set-Location $target;
+    Create-Item -Path $target -ItemType Folder -Force | Out-Null;
+    Set-Location $plugin;
     & mvn package;
     "Sleeping..." | Write-Host;
     Start-Sleep -s 15;
