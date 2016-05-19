@@ -1,0 +1,7 @@
+<!--
+  This view is used to render the installed plugins page.
+-->
+<?jelly escape-by-default='true'?>
+<div>
+  Changes Jenkins theme to a Dark Theme.
+</div>
