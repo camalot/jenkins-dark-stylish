@@ -35,7 +35,7 @@ build_script:
     if ( (Test-Path -Path $target) ) {
       Remove-Item -Path $target | Out-Null;
     }
-    Create-Item -Path $target -ItemType Folder -Force | Out-Null;
+    New-Item -Path $target -ItemType Folder -Force | Out-Null;
     Set-Location $plugin;
     & mvn package;
     "Sleeping..." | Write-Host;
