@@ -36,7 +36,7 @@ build_script:
 - cmd: |
     cd plugin
     mvn package
-- cmd: xcopy plugin\target\*.hpi .\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi /h /c /k /y
+- ps: '& xcopy "${env:APPVEYOR_BUILD_FOLDER}\\plugin\\target\\*.hpi" "${env:APPVEYOR_BUILD_FOLDER}\\dist\\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi" /h /c /k /y'
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
