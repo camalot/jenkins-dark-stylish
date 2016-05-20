@@ -1,6 +1,6 @@
 {
   "name": "jenkins-dark-theme",
-  "version": "0.1.1",
+  "version": "${VERSION}",
   "description": "A dark theme for Jenkins",
   "repository": {
     "type": "git",

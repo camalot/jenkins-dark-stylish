@@ -10,7 +10,9 @@ environment:
   gh_access_token:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
 install:
-- ps: Install-Product node $env:nodejs_version x64
+- ps: |
+    Install-Product node $env:nodejs_version x64;
+    (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json") | foreach { $_ -replace "`${VERISION}", "$ENV:APPVEYOR_BUILD_VERSION" } | Set-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json";
 - cmd: npm install -g grunt-cli
 - cmd: npm install -g grunt
 - cmd: npm install -g less
@@ -71,7 +73,7 @@ deploy:
     branch: master
 after_deploy:
 - ps: |
-    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'develop$' ) {
+    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
       & git config --global credential.helper store;
       Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
       & git config --global user.email "$ENV:git_email"
