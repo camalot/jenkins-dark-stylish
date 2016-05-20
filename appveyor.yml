@@ -36,9 +36,10 @@ build_script:
 - ps: |
     & grunt;
     $webapp = "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
-    if ( !(Test-Path -Path $webapp) ) {
-      New-Item -Path $webapp -ItemType Directory -Force | Out-Null;
+    if ( (Test-Path -Path $webapp) ) {
+      Remove-Item -Path $webapp | Out-Null;
     }
+    New-Item -Path $webapp -ItemType Directory -Force | Out-Null;
     Copy-Item -Path ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css -Destination ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\
     Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
     $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
