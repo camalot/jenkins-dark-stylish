@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>jenkins-dark-stylish by camalot</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>jenkins-dark-stylish</h1>
+        <h2>A theme for jenkins to give a dark look</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/camalot/jenkins-dark-stylish/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/camalot/jenkins-dark-stylish/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/camalot/jenkins-dark-stylish" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="jenkins-dark-" class="anchor" href="#jenkins-dark-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jenkins-dark <a href="https://ci.appveyor.com/project/camalot/jenkins-dark-stylish"><img src="https://ci.appveyor.com/api/projects/status/14lnufroy4v83xjk?svg=true" alt="Build status"></a>
+</h1>
+
+<p>A stylish for Jenkins to give a dark theme.</p>
+
+<pre><code>NOTE: This has not been tested with Jenkins 2.x.
+</code></pre>
+
+<p>You will need to add the domains that you want this to apply to yourself if you use the Stylish plugin.</p>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install</h2>
+
+<h3>
+<a id="simple-theme-jenkins-plugin-auto-updated" class="anchor" href="#simple-theme-jenkins-plugin-auto-updated" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simple Theme Jenkins Plugin (auto-updated)</h3>
+
+<ul>
+<li>Install the <a href="https://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin">Simple Theme Plugin</a> on your Jenkins Server</li>
+<li>Click <code>Manage Jenkins</code>
+</li>
+<li>Click <code>Configure System</code> and scroll to <code>Theme</code> section</li>
+<li>Specify the url of <code>http://jenkins-dark-stylish.github.io/jenkins-dark.min.css</code> for the CSS</li>
+<li>Click <code>Save</code>
+</li>
+</ul>
+
+<h3>
+<a id="native-jenkins-plugin" class="anchor" href="#native-jenkins-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Native Jenkins Plugin</h3>
+
+<ul>
+<li>Download the <a href="https://github.com/camalot/jenkins-dark-stylish/releases/latest">latest  release hpi file</a>
+</li>
+<li>Go to <code>Jenkins -&gt; Manage Jenkins -&gt; Manage Plugins -&gt; Advanced</code>
+</li>
+<li>Go to the <code>Upload Plugin</code> section</li>
+<li>Select the <code>hpi</code> file you downloaded</li>
+<li>Click <code>Upload</code>
+</li>
+<li>Restart Jenkins</li>
+<li>Profit!</li>
+</ul>
+
+<h3>
+<a id="stylish" class="anchor" href="#stylish" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stylish</h3>
+
+<p><em>NOTE: these steps may be slightly different for FireFox version of Stylish</em></p>
+
+<ul>
+<li>Install Stylish:
+
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/stylish/fjnbnpbmkenffdnngjfgmeleoegfcffe?hl=en">Chrome</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/stylish/">Firefox</a></li>
+</ul>
+</li>
+<li>Download the <a href="https://github.com/camalot/jenkins-dark-stylish/releases/latest">latest release zip</a>
+</li>
+<li>Extract to a known location</li>
+<li>Open the Stylish Style Manager (<code>Manage installed styles</code>)</li>
+<li>Click on <code>Write new Style</code>
+</li>
+<li>Under <code>Mozilla Format</code>, Click on <code>Import</code> button</li>
+<li>Select the <code>jenkins-dark.css</code> file that you extracted earlier</li>
+<li>Add your domains that you want this to apply to</li>
+<li>Profit!</li>
+</ul>
+
+<h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<p><img src="http://i.imgur.com/7nL7lLg.png" alt="Jenkins Menu"></p>
+
+<p><img src="http://i.imgur.com/cMfkrb1.png" alt="Script Console"></p>
+
+<p><img src="http://i.imgur.com/2HqsYla.png" alt="Build Queue"></p>
+
+<p><img src="http://i.imgur.com/KpxsHl4.png" alt="Manage Jenkins"></p>
+
+<p><img src="http://i.imgur.com/6uUYuTI.png" alt="Login"></p>
+
+<p><img src="http://i.imgur.com/yTTJ6qO.png" alt="Manage Plugins"></p>
+
+<p><img src="http://i.imgur.com/YKBxbHm.png" alt="Dashboard"></p>
+
+<p><img src="http://i.imgur.com/v9N0oVT.png" alt="Legend"></p>
+
+<h2>
+<a id="how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to build</h2>
+
+<pre><code>$ npm install
+$ grunt
+</code></pre>
+
+<p>This will generate the following:</p>
+
+<ul>
+<li>dist/jenkins-dark.css</li>
+<li>dist/jenkins-dark.min.css</li>
+</ul>
+
+<h2>
+<a id="how-to-contribute" class="anchor" href="#how-to-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to contribute</h2>
+
+<ul>
+<li>Fork the <em>Jenkins-Dark-Stylish</em> repository</li>
+<li>Clone the repository</li>
+<li>Create a new branch (eg. <code>feature/style-menus</code>)</li>
+<li>Create a pull request into <code>develop</code>
+</li>
+</ul>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
