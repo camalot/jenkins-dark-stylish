@@ -105,30 +105,36 @@ deploy:
     branch: /(?!develop|master)/
 after_deploy:
 - ps: |
-    Set-Location $env:APPVEYOR_BUILD_FOLDER | Out-Null;
-    & git config --global credential.helper store;
-    Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
-    & git config --global user.email "$ENV:git_email"
-    & git config --global user.name "$ENV:git_user"
-    $temp = "c:\temp\jenkins-dark-stylish";
-    $VERSION = "$ENV:APPVEYOR_BUILD_VERSION";
-    if ( !(Test-Path -Path $temp )) {
-      New-Item -Path $temp -Force -ItemType Directory | Out-Null;
-    }
+    try {
+      Set-Location $env:APPVEYOR_BUILD_FOLDER | Out-Null;
+      & git config --global credential.helper store;
+      Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
+      & git config --global user.email "$ENV:git_email"
+      & git config --global user.name "$ENV:git_user"
+      $temp = "c:\temp\jenkins-dark-stylish";
+      $VERSION = "$ENV:APPVEYOR_BUILD_VERSION";
+      if ( !(Test-Path -Path $temp )) {
+        New-Item -Path $temp -Force -ItemType Directory | Out-Null;
+      }
 
-    Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp -Force;
-    "Checkout branch gh-pages" | Write-Host;
-    & git checkout gh-pages;
-    "Pull latest from branch" | Write-Host;
-    & git pull;
-    "Copy temp files to path" | Write-Host;
-    Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER} -Force;
-    "Add files ./*.css" | Write-Host;
-    & git add ./*.css
-    & git commit -m "version $VERSION";
-    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
-      # only push for non-pull-requests and on master
-      & git push origin gh-pages;
+      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp -Force;
+      "Checkout branch gh-pages" | Write-Host;
+      & git reset --hard;
+      & git checkout gh-pages;
+      "Pull latest from branch" | Write-Host;
+      & git pull;
+      "Copy temp files to path" | Write-Host;
+      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER} -Force;
+      "Add files ./*.css" | Write-Host;
+      & git add ./*.css
+      & git commit -m "version $VERSION";
+      if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
+        # only push for non-pull-requests and on master
+        & git push origin gh-pages;
+      }
+      # switch back
+      & git checkout $ENV:APPVEYOR_REPO_BRANCH;
+    } catch [Exception]  {
+      "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Error;
+      throw;
     }
-    # switch back
-    & git checkout $ENV:APPVEYOR_REPO_BRANCH;
