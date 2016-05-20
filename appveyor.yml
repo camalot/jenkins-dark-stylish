@@ -120,8 +120,6 @@ after_deploy:
       Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp -Force;
       "Checkout branch gh-pages" | Write-Host;
       & git checkout --force gh-pages;
-      "Pull latest from branch" | Write-Host;
-      & git pull origin gh-pages;
       "Copy temp files to path" | Write-Host;
       Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER} -Force;
       "Add files ./*.css" | Write-Host;
@@ -131,8 +129,6 @@ after_deploy:
         # only push for non-pull-requests and on master
         & git push origin gh-pages;
       }
-      # switch back
-      & git checkout --force $ENV:APPVEYOR_REPO_BRANCH --force;
     } catch [Exception]  {
       "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Error;
       throw;
