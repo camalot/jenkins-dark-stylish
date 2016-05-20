@@ -22,13 +22,13 @@ install:
       [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\maven-bin.zip", "C:\maven")
     }
 - cmd: SET PATH=C:\maven\apache-maven-3.2.5\bin;%JAVA_HOME%\bin;%PATH%
-- cmd: SET MAVEN_OPTS=-XX:MaxPermSize=2g -Xmx4g
+- cmd: SET MAVEN_OPTS=-Xmx4g
 - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
-- cmd: grunt
-- cmd: mkdir -p .\plugin\src\main\webapp
-- cmd: xcopy .\dist\*.min.css .\plugin\src\main\webapp\ /h /i /c /k /y
 - ps: |
+    & grunt;
+    & mkdir -p "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
+    & xcopy ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\ /h /i /c /k /y
     Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
     $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
     $target = Join-Path -Path $plugin -ChildPath target;
@@ -37,7 +37,7 @@ build_script:
     }
     New-Item -Path $target -ItemType Directory -Force | Out-Null;
     Set-Location $plugin;
-    & mvn package;
+    & mvn package -B;
     "Sleeping..." | Write-Host;
     Start-Sleep -s 15;
     "Time to wake up..." | Write-Host;

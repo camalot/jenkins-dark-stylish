@@ -5,29 +5,35 @@ A stylish for Jenkins to give a dark theme.
 NOTE: This has not been tested with Jenkins 2.x.
 ```
 
-You will need to add the domains that you want this to apply to yourself.
-
-```
- @-moz-document domain("my-jenkins-ci-host.com") { ... }
-```
+You will need to add the domains that you want this to apply to yourself if you use the Stylish plugin.
 
 ## How to install
 
-_note: these steps may be slightly different for FireFox version of Stylish_
+### Jenkins Plugin
+
+- Download the [latest  release hpi file](https://github.com/camalot/jenkins-dark-stylish/releases/latest)
+- Go to `Jenkins -> Manage Jenkins -> Manage Plugins`
+- Go to the `Advanced` tab
+- Go to the `Upload Plugin` section
+- Select the `hpi` file you downloaded
+- Click `Upload`
+- Restart Jenkins
+- Profit!
+
+### Stylish
+
+_NOTE: these steps may be slightly different for FireFox version of Stylish_
 
 - Install Stylish:
  - [Chrome][stylish-chrome]
  - [Firefox][stylish-firefox]
-- Download the [latest release](https://github.com/camalot/jenkins-dark-stylish/releases/latest)
+- Download the [latest release zip](https://github.com/camalot/jenkins-dark-stylish/releases/latest)
 - Extract to a known location
-- Open the `css` file in your text editor of choice
-- Modify the `@-moz-document` line to contain the domains you want to apply this to
- -  `@-moz-document domain("my-jenkins-ci-host.com") { ... }`
-- Save the changes
-- Open the Stylish Style Manager (_Manage installed styles._)
-- Click on _Write new Style_
-- Under _Mozilla Format_, Click on _Import_ button
+- Open the Stylish Style Manager (`Manage installed styles`)
+- Click on `Write new Style`
+- Under `Mozilla Format`, Click on `Import` button
 - Select the `jenkins-dark.css` file that you extracted earlier
+- Add your domains that you want this to apply to
 - Profit!
 
 ## Screenshots
