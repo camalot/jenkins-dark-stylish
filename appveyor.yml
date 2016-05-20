@@ -3,28 +3,99 @@ skip_tags: true
 image: WMF 5
 environment:
   nodejs_version: 5.11.0
+  git_email:
+    secure: ZLfpxUrw1AeB4Hzmg9poFh3ehcghbjDXbGa1zdUAmb0=
+  git_name:
+    secure: bOGR0uSE/yW6nUd9i7fcJg==
+  gh_access_token:
+    secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
 install:
-- ps: Install-Product node $env:nodejs_version x64
-- cmd: npm install -g less
-- cmd: npm install -g less-plugin-clean-css
+- ps: |
+    Install-Product node $env:nodejs_version x64;
+    (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json") | foreach { $_ -replace "`"version`": `"0.0.0`"", "`"version`": `"$ENV:APPVEYOR_BUILD_VERSION`"" } | Set-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json";
+- ps: (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json")
+- cmd: npm install -g grunt-cli
+- cmd: npm install -g grunt
+- cmd: npm update -g npm
+- cmd: npm install
+- ps: |
+    $mvnVersion = '3.2.5'
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    if (!(Test-Path -Path "C:\maven\")) {
+      (new-object System.Net.WebClient).DownloadFile(
+        "http://www.us.apache.org/dist/maven/maven-3/${mvnVersion}/binaries/apache-maven-${mvnVersion}-bin.zip",
+        'c:\maven-bin.zip'
+      )
+      [System.IO.Compression.ZipFile]::ExtractToDirectory("C:\maven-bin.zip", "C:\maven")
+    }
+- cmd: SET PATH=C:\maven\apache-maven-3.2.5\bin;%JAVA_HOME%\bin;%PATH%
+- cmd: SET MAVEN_OPTS=-Xmx4g
+- cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
-- cmd: lessc --lint jenkins-dark.less
-- cmd: lessc jenkins-dark.less ./dist/jenkins-dark.css
-- cmd: lessc --clean-css jenkins-dark.less ./dist/jenkins-dark.min.css
-- ps: Compress-Archive -Path ${env:APPVEYOR_BUILD_FOLDER}/dist/*.css -DestinationPath ./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip
+- ps: |
+    $dist = "${env:APPVEYOR_BUILD_FOLDER}\}\dist\";
+    if ( !(Test-Path -Path $dist) ) {
+      New-Item -Path $dist -ItemType Directory -Force;
+    }
+- cmd: grunt
+- ps: |
+    $webapp = "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
+    if ( (Test-Path -Path $webapp) ) {
+      Remove-Item -Path $webapp | Out-Null;
+    }
+    New-Item -Path $webapp -ItemType Directory -Force | Out-Null;
+    Copy-Item -Path ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css -Destination ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\
+    Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "${env:APPVEYOR_BUILD_FOLDER}/dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
+    $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
+    $target = Join-Path -Path $plugin -ChildPath target;
+    if ( (Test-Path -Path $target) ) {
+      Remove-Item -Path $target | Out-Null;
+    }
+    New-Item -Path $target -ItemType Directory -Force | Out-Null;
+    Set-Location $plugin;
+    & mvn package -B;
+    "Sleeping..." | Write-Host;
+    Start-Sleep -s 15;
+    "Time to wake up..." | Write-Host;
+    Copy-Item -Path "$target\jenkins-dark-theme.hpi" -Destination "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi"
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
 - path: dist/*.zip
   name: zip
+- path: dist/*.hpi
+  name: hpi
+cache:
+  - c:\maven
+  - c:\Users\appveyor\.m2
 deploy:
 - provider: GitHub
   tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
   release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
   auth_token:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
-  artifact: zip
+  artifact: zip, hpi
   draft: false
   force_update: true
   on:
     branch: master
+after_deploy:
+- ps: |
+    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
+      Set-Location "${env:APPVEYOR_BUILD_FOLDER}";
+      & git reset --hard;
+      & git config --global credential.helper store;
+      Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
+      & git config --global user.email "$ENV:git_email"
+      & git config --global user.name "$ENV:git_user"
+      $temp = "c:\temp\jenkins-dark-stylish";
+      $VERSION = "$ENV:APPVEYOR_BUILD_VERSION";
+      if ( !(Test-Path -Path $temp )) {
+        New-Item -Path $temp -Force -ItemType Directory | Out-Null;
+      }
+      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp;
+      & git checkout gh-pages;
+      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER};
+      & git commit -a -m "version $VERSION";
+      & git push origin gh-pages;
+    }

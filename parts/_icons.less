@@ -4,6 +4,10 @@ img.icon-hourglass {
   content: @clock-image-16;
 }
 
+img[src$="artifactory-icon.png"][height="16px"] {
+  margin-right: 4px;
+}
+
 .icon-stop {
     content: @stop-build-image-16;
 }
@@ -151,6 +155,7 @@ img[src$="/images/atom.gif"] {
 .icon-yellow,
 .icon-nobuilt-anime,
 .icon-nobuilt,
+.icon-aborted,
 .icon-grey-anime,
 .icon-grey,
 .icon-blue-anime,
@@ -362,6 +367,7 @@ img[src$="red.png"] {
 /* swap out the animation images for new ones */
 img {
   &.icon-grey-anime,
+  &.icon-aborted-anime,
   &.icon-nobuilt-anime {
     .spinning-build-image();
     &.icon-xlg {
@@ -378,7 +384,8 @@ img {
     }
   }
 }
-img[src$="nobuilt_anime.gif"]
+img[src$="aborted_anime.gif"],
+img[src$="nobuilt_anime.gif"],
 img[src$="grey_anime.gif"] {
   vertical-align: text-top;
   .spinning-build-image();
@@ -397,6 +404,7 @@ img[src$="grey_anime.gif"] {
 }
 img {
   &.icon-grey,
+  &.icon-aborted,
   &.icon-nobuilt {
     &.icon-xlg {
       content: @grey-image-48;
@@ -412,6 +420,7 @@ img {
     }
   }
 }
+img[src$="aborted.png"],
 img[src$="nobuilt.png"],
 img[src$="grey.png"] {
   vertical-align: text-top;
