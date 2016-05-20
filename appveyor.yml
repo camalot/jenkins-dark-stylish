@@ -34,6 +34,10 @@ install:
 - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
 - ps: |
+    $dist = "${env:APPVEYOR_BUILD_FOLDER}\}\dist\";
+    if ( !(Test-Path -Path $dist) ) {
+      New-Item -Path $dist -ItemType Directory -Force;
+    }
     & grunt;
     $webapp = "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
     if ( (Test-Path -Path $webapp) ) {
@@ -78,6 +82,7 @@ deploy:
 after_deploy:
 - ps: |
     if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
+      Set-Location "${env:APPVEYOR_BUILD_FOLDER}";
       & git config --global credential.helper store;
       Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
       & git config --global user.email "$ENV:git_email"
