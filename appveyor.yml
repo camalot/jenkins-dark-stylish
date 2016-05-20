@@ -41,7 +41,7 @@ build_script:
     "Sleeping..." | Write-Host;
     Start-Sleep -s 15;
     "Time to wake up..." | Write-Host;
-    & xcopy "$target\*.hpi" "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi" /h /c /y
+    & copy "$target\jenkins-dark-theme.hpi" "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi"
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
@@ -50,8 +50,8 @@ artifacts:
 - path: dist/*.hpi
   name: hpi
 cache:
-  - c:\maven\
-  - c:\Users\appveyor\.m2\
+  - c:\maven
+  - c:\Users\appveyor\.m2
 deploy:
 - provider: GitHub
   tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
