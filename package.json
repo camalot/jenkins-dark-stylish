@@ -1,19 +1,29 @@
 {
   "name": "jenkins-dark-theme",
-  "version": "0.1.1",
+  "version": "0.0.0",
   "description": "A dark theme for Jenkins",
   "repository": {
     "type": "git",
     "url": "https://github.com/camalot/jenkins-dark-stylish"
+  },
+  "bugs": {
+    "url": "https://github.com/camalot/jenkins-dark-stylish/issues"
   },
   "keywords": [
     "stylish",
     "theme",
     "jenkins"
   ],
-  "author": "Ryan Conrad",
+  "author": {
+    "name": "Ryan Conrad",
+    "url": "http://bit13.com/",
+    "email": "camalot@gmail.com"
+  },
   "contributors": [],
-  "license": "Apache 2.0",
+  "license": {
+    "type": "Apache-2.0",
+    "url": "https://raw.githubusercontent.com/camalot/jenkins-dark-stylish/master/LICENSE"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.3",
     "cssnano": "^3.5.2",

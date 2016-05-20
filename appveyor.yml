@@ -10,11 +10,12 @@ environment:
   gh_access_token:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
 install:
-- ps: Install-Product node $env:nodejs_version x64
+- ps: |
+    Install-Product node $env:nodejs_version x64;
+    (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json") | foreach { $_ -replace "`"version`": `"0.0.0`"", "`"version`": `"$ENV:APPVEYOR_BUILD_VERSION`"" } | Set-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json";
+- ps: (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json")
 - cmd: npm install -g grunt-cli
 - cmd: npm install -g grunt
-- cmd: npm install -g less
-- cmd: npm install -g less-plugin-clean-css
 - cmd: npm update -g npm
 - cmd: npm install
 - ps: |
@@ -32,10 +33,19 @@ install:
 - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
 - ps: |
-    & grunt;
-    & mkdir -p "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
-    & xcopy ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\ /h /i /c /k /y
-    Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "./dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
+    $dist = "${env:APPVEYOR_BUILD_FOLDER}\}\dist\";
+    if ( !(Test-Path -Path $dist) ) {
+      New-Item -Path $dist -ItemType Directory -Force;
+    }
+- cmd: grunt
+- ps: |
+    $webapp = "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
+    if ( (Test-Path -Path $webapp) ) {
+      Remove-Item -Path $webapp | Out-Null;
+    }
+    New-Item -Path $webapp -ItemType Directory -Force | Out-Null;
+    Copy-Item -Path ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css -Destination ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\
+    Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "${env:APPVEYOR_BUILD_FOLDER}/dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
     $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
     $target = Join-Path -Path $plugin -ChildPath target;
     if ( (Test-Path -Path $target) ) {
@@ -47,7 +57,7 @@ build_script:
     "Sleeping..." | Write-Host;
     Start-Sleep -s 15;
     "Time to wake up..." | Write-Host;
-    & copy "$target\jenkins-dark-theme.hpi" "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi"
+    Copy-Item -Path "$target\jenkins-dark-theme.hpi" -Destination "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi"
 artifacts:
 - path: dist/jenkins-dark.css
   name: css
@@ -71,7 +81,9 @@ deploy:
     branch: master
 after_deploy:
 - ps: |
-    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'develop$' ) {
+    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
+      Set-Location "${env:APPVEYOR_BUILD_FOLDER}";
+      & git reset --hard;
       & git config --global credential.helper store;
       Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
       & git config --global user.email "$ENV:git_email"
@@ -81,10 +93,9 @@ after_deploy:
       if ( !(Test-Path -Path $temp )) {
         New-Item -Path $temp -Force -ItemType Directory | Out-Null;
       }
-      & copy "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" $temp;
+      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp;
       & git checkout gh-pages;
-      & copy "$temp\*.*" ${env:APPVEYOR_BUILD_FOLDER};
-      & git add .;
-      & git commit -m "version $VERSION";
+      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER};
+      & git commit -a -m "version $VERSION";
       & git push origin gh-pages;
     }
