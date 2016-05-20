@@ -92,17 +92,17 @@ deploy:
   force_update: true
   on:
     branch: develop
-- provider: GitHub
-  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
-  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
-  auth_token:
-    secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
-  artifact: zip, hpi
-  draft: true
-  prerelease: true
-  force_update: true
-  on:
-    branch: /(?!develop|master)/
+# - provider: GitHub
+#   tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
+#   release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
+#   auth_token:
+#     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
+#   artifact: zip, hpi
+#   draft: true
+#   prerelease: true
+#   force_update: true
+#   on:
+#     branch: /(?!develop|master)/
 after_deploy:
 - ps: |
     try {
