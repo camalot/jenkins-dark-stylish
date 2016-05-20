@@ -8,3 +8,6 @@ target/
 work/
 *.iml
 webapp/
+
+jenkins-dark.css
+jenkins-dark.min.css
