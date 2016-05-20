@@ -83,6 +83,7 @@ after_deploy:
 - ps: |
     if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
       Set-Location "${env:APPVEYOR_BUILD_FOLDER}";
+      & git reset --hard;
       & git config --global credential.helper store;
       Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
       & git config --global user.email "$ENV:git_email"
@@ -92,10 +93,9 @@ after_deploy:
       if ( !(Test-Path -Path $temp )) {
         New-Item -Path $temp -Force -ItemType Directory | Out-Null;
       }
-      & copy "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" $temp;
+      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp;
       & git checkout gh-pages;
-      & copy "$temp\*.*" ${env:APPVEYOR_BUILD_FOLDER};
-      & git add .;
-      & git commit -m "version $VERSION";
+      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER};
+      & git commit -a -m "version $VERSION";
       & git push origin gh-pages;
     }
