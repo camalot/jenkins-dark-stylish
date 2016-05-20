@@ -119,10 +119,9 @@ after_deploy:
 
       Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp -Force;
       "Checkout branch gh-pages" | Write-Host;
-      & git reset --hard;
-      & git checkout gh-pages;
+      & git checkout gh-pages --force;
       "Pull latest from branch" | Write-Host;
-      & git pull;
+      & git pull origin gh-pages;
       "Copy temp files to path" | Write-Host;
       Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER} -Force;
       "Add files ./*.css" | Write-Host;
@@ -133,7 +132,7 @@ after_deploy:
         & git push origin gh-pages;
       }
       # switch back
-      & git checkout $ENV:APPVEYOR_REPO_BRANCH;
+      & git checkout $ENV:APPVEYOR_REPO_BRANCH --force;
     } catch [Exception]  {
       "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Error;
       throw;
