@@ -1,209 +1,217 @@
+/**
+* Author: Ryan Conrad
+* Version: ${VERSION}
+* GitHub: https://github.com/camalot/jenkins-dark-stylish/
+* Issues: https://github.com/camalot/jenkins-dark-stylish/issues
+**/
 @import url( './parts/_variables.less');
-@-moz-document domain("my-jenkins-ci-host.com") {
-     @import url( './parts/_keyframes.less');
-    ::-webkit-scrollbar {
-        max-width: 10px !important;
-        max-height: 10px !important;
-        background: lighten(@background-light,8.8%) !important;
-    }
-    ::-webkit-scrollbar-corner,
-    ::-webkit-scrollbar-track {
-        background: lighten(@background-light,8.8%) !important;
-    }
-    ::-webkit-scrollbar-thumb {
-        border-radius: 5px !important;
-        background: rgba(80,80,80,.6) !important;
-    }
-    ::-webkit-scrollbar-corner,
-    ::-webkit-scrollbar-track {
-        background: lighten(@background-light,8.8%) !important;
-    }
-    ::selection {
-        background-color: lighten(@blue,20%) !important;
-        color: @white !important;
-    }
-    #main-panel,
-    .bottom-sticker-inner,
-    .top-sticker-inner,
-    body,
-    html {
-        background: @background-dark;
-        color: @text-light;
-    }
-    #breadcrumbBar,
-    #footer-container {
-        background: @background-black;
-        color: @text-light;
-    }
-    body,
-    form,
-    p,
-    table,
-    td,
-    th {
-        color: @text-light;
-    }
-    form {
-        margin: 0;
-        padding: 0;
-    }
-    .model-link,
-    a,
-    a:link,
-    a:visited {
-        text-decoration: none;
-        color: @blue;
-        outline: none;
-    }
-    .setting-input,
-    input[type='password']:hover,
-    input[type='text']:hover {
-        border-color: #4183C4;
-    }
-    .setting-input,
-    input[type='password'],
-    input[type='text'] {
-        font-size: 1.2em;
-        border: solid 1px #111;
-        color: @text-light;
-        background-color: #3a3a3a;
-        outline: none;
-        padding: 6px 5px 4px;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    footer {
-        background: @background-black;
-        color: @text-light;
-        border-color: @background-333;
-        border-bottom: none;
-    }
-    #header {
-        background: @background-black;
-    }
-    @import url( './parts/_notifications.less');
-    @import url( './parts/_wtf.less');
-    @import url( './parts/_code-editor.less');
-    .bottom-sticker-edge {
-        /* hide the shadow on the bottom panel */
-        display: none;
-    }
-    #menuSelector,
-    .healthReportDetails {
-        -webkit-filter: invert(100%);
-    }
-    .healthReportDetails img {
-        -webkit-filter: invert(100%);
-    }
-    .hetero-list-container .dd-handle,
-    .repeated-container .dd-handle {
-        background-image: @drag-handle-image;
-    }
-    .repeated-chunk.hover {
-        border-color: #111;
-    }
-    @import url( './parts/_icons.less');
-    .greyed {
-        color: #d1d1d1;
-    }
-    .redbold {
-        color: darkred;
-        font-weight: bold;
-    }
-    .greenbold {
-        color: #6c0;
-        font-weight: bold;
-    }
-    .inverse {
-        color: @black;
-    }
-    .section-header {
-        margin: 5px;
-        padding: 10px;
-        font-size: 3em;
-        background-color: @blue;
-        color: @text-light;
-        text-transform: uppercase;
-        border: none;
-        border-bottom: none;
-    }
-    @import url("./parts/_breadcrumbs.less");
-    @import url("./parts/_side-panel.less");
-    @import url("./parts/_main-panel.less");
-
-
-    /* bigtable */
-    .bigtable tr {
-        border: 1px solid @background-dark;
-    }
-    #projectstatus .header {
-        border-bottom-color: @background-dark;
-    }
-    .bigtable th,
-    .bigtable tr.header {
-        background-color: @background-black;
-        border-color: @background-dark;
-        color: @text-light;
-    }
-    table.sortable span.sortarrow {
-        color: @text-light;
-    }
-    .bigtable tr.header th {
-        background-color: @background-black;
-        color: @text-light;
-    }
-    table.sortable a.sortheader {
-        color: @text-light;
-    }
-    table.bigtable.pane > tbody > tr > td:last-child {}
-    .pane-frame .bigtable tr,
-    .pane-frame table {}
-    table.stripped tr:nth-child(even) {
-        background: @background-black;
-        color: @text-light;
-    }
-    .bigtable .plugin-category td.pane {
-        font-size: 3em;
-        text-align: center;
-        text-transform: uppercase;
-        background-color: #4183C4;
-        color: @text-light;
-    }
-    @import url( './parts/_dashboard.less');
-    @import url( './parts/_buildHistory.less');
-    @import url( './parts/_tasks.less');
-    #buildQueue .pane[colspan='2'] {
-        text-align: center;
-        padding: 10px 0;
-        color: #999;
-    }
-    @import url( './parts/_login.less');
-    .setting-name {
-        text-transform: capitalize;
-        vertical-align: middle;
-    }
-    .setting-name::after {}
-    #filter-box,
-    #search-box {
-        border: solid 1px @background-black;
-        border-radius: 0;
-        box-shadow: none;
-        background: #3a3a3a @search-image-16 3px center no-repeat !important;
-        padding: 4px 3px 4px 25px !important;
-        color: @text-light;
-    }
-    #filter-box:hover,
-    #search-box:hover {
-        border-color: @blue;
-    }
-    @import url( './parts/_buttons.less');
-    @import url( './parts/_tabs.less');
-    /* this is the trend timeline */
-    .timeline-container {
-        -webkit-filter: invert(80%);
-    }
-    /* this is inside the timeline, so we invert it back to normal */
-    .timeline-container .timeline-event-icon > img {
-        -webkit-filter: invert(80%);
-    }
+.jenkins_ver::after {
+    content: ' : Jenkins-Dark v${VERSION}';
+}
+#l10n-footer {
+    display: none;
+}
+@import url( './parts/_keyframes.less');
+::-webkit-scrollbar {
+    max-width: 10px !important;
+    max-height: 10px !important;
+    background: lighten(@background-light,8.8%) !important;
+}
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+    background: lighten(@background-light,8.8%) !important;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px !important;
+    background: rgba(80,80,80,.6) !important;
+}
+::-webkit-scrollbar-corner,
+::-webkit-scrollbar-track {
+    background: lighten(@background-light,8.8%) !important;
+}
+::selection {
+    background-color: lighten(@blue,20%) !important;
+    color: @white !important;
+}
+#main-panel,
+.bottom-sticker-inner,
+.top-sticker-inner,
+body,
+html {
+    background: @background-dark;
+    color: @text-light;
+}
+#breadcrumbBar,
+#footer-container {
+    background: @background-black;
+    color: @text-light;
+}
+body,
+form,
+p,
+table,
+td,
+th {
+    color: @text-light;
+}
+form {
+    margin: 0;
+    padding: 0;
+}
+.model-link,
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+    color: @blue;
+    outline: none;
+}
+.setting-input,
+input[type='password']:hover,
+input[type='text']:hover {
+    border-color: #4183C4;
+}
+.setting-input,
+input[type='password'],
+input[type='text'] {
+    font-size: 1.2em;
+    border: solid 1px #111;
+    color: @text-light;
+    background-color: #3a3a3a;
+    outline: none;
+    padding: 6px 5px 4px;
+    border-radius: 0;
+    box-shadow: none;
+}
+footer {
+    background: @background-black;
+    color: @text-light;
+    border-color: @background-333;
+    border-bottom: none;
+}
+#header {
+    background: @background-black;
+}
+@import url( './parts/_notifications.less');
+@import url( './parts/_wtf.less');
+@import url( './parts/_code-editor.less');
+.bottom-sticker-edge {
+    /* hide the shadow on the bottom panel */
+    display: none;
+}
+#menuSelector,
+.healthReportDetails {
+    -webkit-filter: invert(100%);
+}
+.healthReportDetails img {
+    -webkit-filter: invert(100%);
+}
+.hetero-list-container .dd-handle,
+.repeated-container .dd-handle {
+    background-image: @drag-handle-image;
+}
+.repeated-chunk.hover {
+    border-color: #111;
+}
+@import url( './parts/_icons.less');
+.greyed {
+    color: #d1d1d1;
+}
+.redbold {
+    color: darkred;
+    font-weight: bold;
+}
+.greenbold {
+    color: #6c0;
+    font-weight: bold;
+}
+.inverse {
+    color: @black;
+}
+.section-header {
+    margin: 5px;
+    padding: 10px;
+    font-size: 3em;
+    background-color: @blue;
+    color: @text-light;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: none;
+}
+@import url("./parts/_breadcrumbs.less");
+@import url("./parts/_side-panel.less");
+@import url("./parts/_main-panel.less");
+/* bigtable */
+.bigtable tr {
+    border: 1px solid @background-dark;
+}
+#projectstatus .header {
+    border-bottom-color: @background-dark;
+}
+.bigtable th,
+.bigtable tr.header {
+    background-color: @background-black;
+    border-color: @background-dark;
+    color: @text-light;
+}
+table.sortable span.sortarrow {
+    color: @text-light;
+}
+.bigtable tr.header th {
+    background-color: @background-black;
+    color: @text-light;
+}
+table.sortable a.sortheader {
+    color: @text-light;
+}
+table.bigtable.pane > tbody > tr > td:last-child {}
+.pane-frame .bigtable tr,
+.pane-frame table {}
+table.stripped tr:nth-child(even) {
+    background: @background-black;
+    color: @text-light;
+}
+.bigtable .plugin-category td.pane {
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #4183C4;
+    color: @text-light;
+}
+@import url( './parts/_dashboard.less');
+@import url( './parts/_buildHistory.less');
+@import url( './parts/_tasks.less');
+#buildQueue .pane[colspan='2'] {
+    text-align: center;
+    padding: 10px 0;
+    color: #999;
+}
+@import url( './parts/_login.less');
+.setting-name {
+    text-transform: capitalize;
+    vertical-align: middle;
+}
+.setting-name::after {}
+#filter-box,
+#search-box {
+    border: solid 1px @background-black;
+    border-radius: 0;
+    box-shadow: none;
+    background: #3a3a3a @search-image-16 3px center no-repeat !important;
+    padding: 4px 3px 4px 25px !important;
+    color: @text-light;
+}
+#filter-box:hover,
+#search-box:hover {
+    border-color: @blue;
+}
+@import url( './parts/_buttons.less');
+@import url( './parts/_tabs.less');
+/* this is the trend timeline */
+.timeline-container {
+    -webkit-filter: invert(80%);
+}
+/* this is inside the timeline, so we invert it back to normal */
+.timeline-container .timeline-event-icon > img {
+    -webkit-filter: invert(80%);
 }

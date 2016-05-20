@@ -1,0 +1,10 @@
+.DS_Store
+.idea/
+node_modules/
+.vagrant/
+dist/
+hpi/
+target/
+work/
+*.iml
+webapp/

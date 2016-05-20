@@ -93,7 +93,7 @@
             z-index: 10;
             position: absolute;
             visibility: hidden;
-            border-left: 6px solid @green;
+            border-left: 6px solid @green !important;
             border-right: none;
             width: 0;
         }
@@ -113,23 +113,20 @@
     width: auto;
     border: 0;
     background: transparent;
-    background: rgba(255, 255, 255, .4);
+    background: rgba(0, 255, 0, .4) !important;
 }
-/* Kludge to turn off filter in ie9+, which also accepts rgba */
-.cm-keymap-fat-cursor pre.CodeMirror-cursor:not(#nonsense_id) {
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
+
 .CodeMirror pre.CodeMirror-cursor.CodeMirror-overwrite {}
 .CodeMirror-focused pre.CodeMirror-cursor {
     visibility: visible;
 }
 div.CodeMirror-selected {
-    background: lighten(@blue,50%);
+    background: lighten(@blue,50%) !important;
     color: @white !important;
 }
 .CodeMirror-focused div.CodeMirror-selected {
-    background: lighten(@blue,50%);
-    color: @white;
+    background: lighten(@blue,50%) !important;
+    color: @white !important;
 }
 .CodeMirror-searching {
     background: #ffa;
