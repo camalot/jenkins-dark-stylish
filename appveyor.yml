@@ -96,6 +96,7 @@ after_deploy:
       Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp;
       & git checkout gh-pages;
       Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER};
-      & git commit -a -m "version $VERSION";
+      & git add ./*.css
+      & git commit -m "version $VERSION";
       & git push origin gh-pages;
     }
