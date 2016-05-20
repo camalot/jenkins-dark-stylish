@@ -12,11 +12,10 @@ environment:
 install:
 - ps: |
     Install-Product node $env:nodejs_version x64;
-    (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json") | foreach { $_ -replace "`${VERISION}", "$ENV:APPVEYOR_BUILD_VERSION" } | Set-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json";
+    (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json") | foreach { $_ -replace "`"version`": `"0.0.0`"", "`"version`": `"$ENV:APPVEYOR_BUILD_VERSION`"" } | Set-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json";
+- ps: (Get-Content -Path "${env:APPVEYOR_BUILD_FOLDER}\package.json")
 - cmd: npm install -g grunt-cli
 - cmd: npm install -g grunt
-- cmd: npm install -g less
-- cmd: npm install -g less-plugin-clean-css
 - cmd: npm update -g npm
 - cmd: npm install
 - ps: |
