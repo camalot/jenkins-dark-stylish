@@ -71,8 +71,8 @@ cache:
   - c:\Users\appveyor\.m2
 deploy:
 - provider: GitHub
-  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
-  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
+  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
+  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
   auth_token:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
   artifact: zip, hpi
@@ -82,13 +82,13 @@ deploy:
   on:
     branch: master
 - provider: GitHub
-  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
-  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)
+  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
+  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
   auth_token:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
   artifact: zip, hpi
   prerelease: true
-  draft: true
+  draft: false
   force_update: true
   on:
     branch: develop
