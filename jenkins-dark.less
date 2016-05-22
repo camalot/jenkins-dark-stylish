@@ -5,11 +5,8 @@
 * Issues: https://github.com/camalot/jenkins-dark-stylish/issues
 **/
 @import url( './parts/_variables.less');
-.jenkins_ver::after {
-    content: ' : Jenkins-Dark v${VERSION}';
-}
 #l10n-footer {
-    display: none;
+    display: none !important;
 }
 @import url( './parts/_keyframes.less');
 ::-webkit-scrollbar {
@@ -188,26 +185,7 @@ table.stripped tr:nth-child(even) {
     vertical-align: middle;
 }
 .setting-name::after {}
-#filter-box,
-#search-box {
-    border: solid 1px @background-black;
-    border-radius: 0;
-    box-shadow: none;
-    background: #3a3a3a @search-image-16 3px center no-repeat !important;
-    padding: 4px 3px 4px 25px !important;
-    color: @text-light;
-}
-#filter-box:hover,
-#search-box:hover {
-    border-color: @blue;
-}
+@import url('./parts/_searchbox.less');
 @import url( './parts/_buttons.less');
 @import url( './parts/_tabs.less');
-/* this is the trend timeline */
-.timeline-container {
-    -webkit-filter: invert(80%);
-}
-/* this is inside the timeline, so we invert it back to normal */
-.timeline-container .timeline-event-icon > img {
-    -webkit-filter: invert(80%);
-}
+@import url( './parts/_timeline.less');
