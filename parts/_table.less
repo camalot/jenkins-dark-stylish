@@ -1,0 +1,31 @@
+@import url( './_variables.less');
+.bigtable th,
+.bigtable tr.header {
+    background-color: @background-black;
+    border-color: @background-dark;
+    color: @text-light;
+}
+table.sortable span.sortarrow {
+    color: @text-light;
+}
+.bigtable tr.header th {
+    background-color: @background-black;
+    color: @text-light;
+}
+table.sortable a.sortheader {
+    color: @text-light;
+}
+table.bigtable.pane > tbody > tr > td:last-child {}
+.pane-frame .bigtable tr,
+.pane-frame table {}
+table.stripped tr:nth-child(even) {
+    background: @background-black;
+    color: @text-light;
+}
+.bigtable .plugin-category td.pane {
+    font-size: 3em;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #4183C4;
+    color: @text-light;
+}
