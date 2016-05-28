@@ -5,34 +5,12 @@
 * Issues: https://github.com/camalot/jenkins-dark-stylish/issues
 **/
 @import url( './parts/_variables.less');
-.jenkins_ver::after {
-    content: ' : Jenkins-Dark v${VERSION}';
-}
 #l10n-footer {
-    display: none;
+    display: none !important;
 }
 @import url( './parts/_keyframes.less');
-::-webkit-scrollbar {
-    max-width: 10px !important;
-    max-height: 10px !important;
-    background: lighten(@background-light,8.8%) !important;
-}
-::-webkit-scrollbar-corner,
-::-webkit-scrollbar-track {
-    background: lighten(@background-light,8.8%) !important;
-}
-::-webkit-scrollbar-thumb {
-    border-radius: 5px !important;
-    background: rgba(80,80,80,.6) !important;
-}
-::-webkit-scrollbar-corner,
-::-webkit-scrollbar-track {
-    background: lighten(@background-light,8.8%) !important;
-}
-::selection {
-    background-color: lighten(@blue,20%) !important;
-    color: @white !important;
-}
+@import url('./parts/_scrollbar.less');
+
 #main-panel,
 .bottom-sticker-inner,
 .top-sticker-inner,
@@ -99,11 +77,7 @@ footer {
     /* hide the shadow on the bottom panel */
     display: none;
 }
-#menuSelector,
-.healthReportDetails {
-    -webkit-filter: invert(100%);
-}
-.healthReportDetails img {
+#menuSelector {
     -webkit-filter: invert(100%);
 }
 .hetero-list-container .dd-handle,
@@ -141,43 +115,10 @@ footer {
 @import url("./parts/_breadcrumbs.less");
 @import url("./parts/_side-panel.less");
 @import url("./parts/_main-panel.less");
-/* bigtable */
-.bigtable tr {
-    border: 1px solid @background-dark;
-}
 #projectstatus .header {
     border-bottom-color: @background-dark;
 }
-.bigtable th,
-.bigtable tr.header {
-    background-color: @background-black;
-    border-color: @background-dark;
-    color: @text-light;
-}
-table.sortable span.sortarrow {
-    color: @text-light;
-}
-.bigtable tr.header th {
-    background-color: @background-black;
-    color: @text-light;
-}
-table.sortable a.sortheader {
-    color: @text-light;
-}
-table.bigtable.pane > tbody > tr > td:last-child {}
-.pane-frame .bigtable tr,
-.pane-frame table {}
-table.stripped tr:nth-child(even) {
-    background: @background-black;
-    color: @text-light;
-}
-.bigtable .plugin-category td.pane {
-    font-size: 3em;
-    text-align: center;
-    text-transform: uppercase;
-    background-color: #4183C4;
-    color: @text-light;
-}
+@import url('./parts/_table.less');
 @import url( './parts/_dashboard.less');
 @import url( './parts/_buildHistory.less');
 @import url( './parts/_tasks.less');
@@ -192,26 +133,7 @@ table.stripped tr:nth-child(even) {
     vertical-align: middle;
 }
 .setting-name::after {}
-#filter-box,
-#search-box {
-    border: solid 1px @background-black;
-    border-radius: 0;
-    box-shadow: none;
-    background: #3a3a3a @search-image-16 3px center no-repeat !important;
-    padding: 4px 3px 4px 25px !important;
-    color: @text-light;
-}
-#filter-box:hover,
-#search-box:hover {
-    border-color: @blue;
-}
+@import url('./parts/_searchbox.less');
 @import url( './parts/_buttons.less');
 @import url( './parts/_tabs.less');
-/* this is the trend timeline */
-.timeline-container {
-    -webkit-filter: invert(80%);
-}
-/* this is inside the timeline, so we invert it back to normal */
-.timeline-container .timeline-event-icon > img {
-    -webkit-filter: invert(80%);
-}
+@import url( './parts/_timeline.less');

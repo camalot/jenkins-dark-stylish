@@ -33,19 +33,19 @@ install:
 - cmd: SET JAVA_OPTS=-XX:MaxPermSize=2g -Xmx4g
 build_script:
 - ps: |
-    $dist = "${env:APPVEYOR_BUILD_FOLDER}\}\dist\";
+    $dist = "$env:APPVEYOR_BUILD_FOLDER\dist\";
     if ( !(Test-Path -Path $dist) ) {
       New-Item -Path $dist -ItemType Directory -Force;
     }
 - cmd: grunt
 - ps: |
-    $webapp = "${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp";
+    $webapp = "$env:APPVEYOR_BUILD_FOLDER\plugin\src\main\webapp";
     if ( (Test-Path -Path $webapp) ) {
       Remove-Item -Path $webapp | Out-Null;
     }
     New-Item -Path $webapp -ItemType Directory -Force | Out-Null;
-    Copy-Item -Path ${env:APPVEYOR_BUILD_FOLDER}\dist\*.min.css -Destination ${env:APPVEYOR_BUILD_FOLDER}\plugin\src\main\webapp\
-    Compress-Archive -Path "${env:APPVEYOR_BUILD_FOLDER}/dist/*.css" -DestinationPath "${env:APPVEYOR_BUILD_FOLDER}/dist/${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
+    Copy-Item -Path $dist\*.min.css -Destination $webapp -Force
+    Compress-Archive -Path "$dist\*.css" -DestinationPath "$dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.zip"
     $plugin = "${env:APPVEYOR_BUILD_FOLDER}\plugin\";
     $target = Join-Path -Path $plugin -ChildPath target;
     if ( (Test-Path -Path $target) ) {
@@ -57,6 +57,7 @@ build_script:
     "Sleeping..." | Write-Host;
     Start-Sleep -s 15;
     "Time to wake up..." | Write-Host;
+    "Copy hpi to /dist folder" | Write-Host;
     Copy-Item -Path "$target\jenkins-dark-theme.hpi" -Destination "${env:APPVEYOR_BUILD_FOLDER}\dist\${env:APPVEYOR_PROJECT_NAME}-${env:APPVEYOR_BUILD_VERSION}.hpi"
 artifacts:
 - path: dist/jenkins-dark.css
@@ -76,14 +77,36 @@ deploy:
     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
   artifact: zip, hpi
   draft: false
+  prerelease: false
   force_update: true
   on:
     branch: master
+- provider: GitHub
+  tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
+  release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-prerelease
+  auth_token:
+    secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
+  artifact: zip, hpi
+  prerelease: true
+  draft: false
+  force_update: true
+  on:
+    branch: develop
+# - provider: GitHub
+#   tag: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
+#   release: $(APPVEYOR_PROJECT_NAME)-$(APPVEYOR_BUILD_VERSION)-snapshot
+#   auth_token:
+#     secure: Es5XTlIJiCiCFJHGDOA09AGFVZQL0jIWtUuPp4+m7MBcfeoVGbWQP2jYU3oSL5bw
+#   artifact: zip, hpi
+#   draft: true
+#   prerelease: true
+#   force_update: true
+#   on:
+#     branch: /(?!develop|master)/
 after_deploy:
 - ps: |
-    if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
-      Set-Location "${env:APPVEYOR_BUILD_FOLDER}";
-      & git reset --hard;
+    try {
+      Set-Location $env:APPVEYOR_BUILD_FOLDER | Out-Null;
       & git config --global credential.helper store;
       Add-Content "$ENV:USERPROFILE\.git-credentials" "https://$($ENV:gh_access_token):x-oauth-basic@github.com`n";
       & git config --global user.email "$ENV:git_email"
@@ -93,10 +116,20 @@ after_deploy:
       if ( !(Test-Path -Path $temp )) {
         New-Item -Path $temp -Force -ItemType Directory | Out-Null;
       }
-      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp;
-      & git checkout gh-pages;
-      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER};
+
+      Copy-Item -Path "${env:APPVEYOR_BUILD_FOLDER}\dist\*.css" -Destination $temp -Force;
+      "Checkout branch gh-pages" | Write-Host;
+      & git checkout --force gh-pages;
+      "Copy temp files to path" | Write-Host;
+      Copy-Item -Path "$temp\*.*" -Destination ${env:APPVEYOR_BUILD_FOLDER} -Force;
+      "Add files ./*.css" | Write-Host;
       & git add ./*.css
       & git commit -m "version $VERSION";
-      & git push origin gh-pages;
+      if ( $ENV:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $ENV:APPVEYOR_REPO_BRANCH -match 'master$' ) {
+        # only push for non-pull-requests and on master
+        & git push origin gh-pages;
+      }
+    } catch [Exception]  {
+      "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Error;
+      throw;
     }

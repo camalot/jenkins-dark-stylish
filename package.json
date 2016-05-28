@@ -46,7 +46,9 @@
     "load-grunt-tasks": "^3.3.0",
     "npm": "^3.4.1",
     "pixrem": "^3.0.0",
-    "postcss-encode-base64-inlined-images": "0.0.1"
+    "postcss-encode-base64-inlined-images": "0.0.1",
+
+    "quixote": "^0.12.2"
   },
   "dependencies": {}
 }
