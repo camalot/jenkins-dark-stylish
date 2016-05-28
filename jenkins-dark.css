@@ -1,14 +1,11 @@
 /**
 * Author: Ryan Conrad
-* Version: 1.0.105
+* Version: 1.0.129
 * GitHub: https://github.com/camalot/jenkins-dark-stylish/
 * Issues: https://github.com/camalot/jenkins-dark-stylish/issues
 **/
-.jenkins_ver::after {
-  content: ' : Jenkins-Dark v1.0.105';
-}
 #l10n-footer {
-  display: none;
+  display: none !important;
 }
 @keyframes spinner {
   from {
@@ -532,11 +529,7 @@ div.textarea-handle {
   /* hide the shadow on the bottom panel */
   display: none;
 }
-#menuSelector,
-.healthReportDetails {
-  -webkit-filter: invert(100%);
-}
-.healthReportDetails img {
+#menuSelector {
   -webkit-filter: invert(100%);
 }
 .hetero-list-container .dd-handle,
@@ -1282,12 +1275,12 @@ td > img {
 #main-panel table.stripped-odd tr:nth-child(odd) {
   background: #020202;
 }
+#projectstatus .header {
+  border-bottom-color: #222;
+}
 /* bigtable */
 .bigtable tr {
   border: 1px solid #222;
-}
-#projectstatus .header {
-  border-bottom-color: #222;
 }
 .bigtable th,
 .bigtable tr.header {
@@ -1331,6 +1324,7 @@ table#computers td {
 .dashboard table#projectstatus .job-status-green td,
 .dashboard table#projectstatus .job-status-blue td,
 .dashboard table#projectstatus .job-status-aborted td,
+.dashboard table#projectstatus .job-status-grey td,
 .dashboard table#projectstatus .job-status-nobuilt td,
 .dashboard table#projectstatus .job-status- td {
   font-size: 2em;
@@ -1344,6 +1338,8 @@ table#computers td {
 .dashboard table#projectstatus.stripped tr.job-status-green-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(even).job-status-blue-anime,
 .dashboard table#projectstatus.stripped tr.job-status-blue-anime,
+.dashboard table#projectstatus.stripped-odd tr:nth-child(even).job-status-grey-anime,
+.dashboard table#projectstatus.stripped tr.job-status-grey-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(even).job-status-nobuilt-anime,
 .dashboard table#projectstatus.stripped tr.job-status-nobuilt-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(even).job-status-aborted-anime,
@@ -1358,6 +1354,8 @@ table#computers td {
 .dashboard table#projectstatus.stripped tr:nth-child(even).job-status-green-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(odd).job-status-blue-anime,
 .dashboard table#projectstatus.stripped tr:nth-child(even).job-status-blue-anime,
+.dashboard table#projectstatus.stripped-odd tr:nth-child(odd).job-status-grey-anime,
+.dashboard table#projectstatus.stripped tr:nth-child(even).job-status-grey-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(odd).job-status-nobuilt-anime,
 .dashboard table#projectstatus.stripped tr:nth-child(even).job-status-nobuilt-anime,
 .dashboard table#projectstatus.stripped-odd tr:nth-child(odd).job-status-aborted-anime,
