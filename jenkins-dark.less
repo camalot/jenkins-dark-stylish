@@ -10,6 +10,7 @@
 }
 @import url( './parts/_keyframes.less');
 @import url('./parts/_scrollbar.less');
+@import url('./parts/_dialogs.less');
 
 #main-panel,
 body,
@@ -47,6 +48,7 @@ a:visited {
 input[type='password']:hover,
 input[type='text']:hover {
     border-color: #4183C4;
+
 }
 .setting-input,
 input[type='password'],
@@ -56,8 +58,8 @@ input[type='text'] {
     color: @text-light;
     background-color: #3a3a3a;
     outline: none;
-    padding: 6px 5px 4px;
-    border-radius: 0;
+    padding: 6px 5px 4px !important;
+    border-radius: 0 !important;
     box-shadow: none;
 }
 footer {
@@ -72,7 +74,6 @@ footer {
 @import url( './parts/_notifications.less');
 @import url( './parts/_wtf.less');
 @import url( './parts/_code-editor.less');
-@import url('./parts/_dialogs.less');
 
 #menuSelector {
     -webkit-filter: invert(100%);
