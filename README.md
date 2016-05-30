@@ -2,7 +2,7 @@
 A theme for Jenkins to give a dark look.
 
 ```
-NOTE: Tested with both Jenkins version 1.6xx+ and 2.x
+NOTE: Tested with both Jenkins version 1.6xx+ and 2.x (some things on 2.x are not styled properly yet.)
 ```
 
 You will need to add the domains that you want this to apply to yourself if you use the Stylish plugin.
@@ -42,7 +42,7 @@ _NOTE: these steps may be slightly different for FireFox version of Stylish_
 - Add your domains that you want this to apply to
 - Profit!
 
-### Install the plugin via chef and the jenkins-cookbook
+### Install the plugin via chef and the [jenkins-cookbook](https://supermarket.chef.io/cookbooks/jenkins)
 
 ```
 jenkins_dark_theme_version = '1.0.105'
