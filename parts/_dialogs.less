@@ -1,0 +1,60 @@
+@import url( './_variables.less');
+
+
+.bottom-sticker-inner,
+.top-sticker-inner {
+  background: @background-dark !important;
+  color: @text-light !important;
+
+  border-radius: 0 !important;
+  border: 0 !important;
+}
+
+#bottom-sticker {
+  left: 250px !important;
+  right: 0 !important;
+}
+
+.bottom-sticker-edge {
+    /* hide the shadow on the bottom panel */
+    display: none !important;
+}
+
+#jenkins {
+  .jenkins-config {
+    background: @background-dark !important;
+    color: @text-light !important;
+    border: 0 !important;
+    table.config-table {
+      background: @background-dark !important;
+      color: @text-light !important;
+    }
+  }
+}
+
+
+.jenkins-config-widgets {
+  background: @background-dark !important;
+  border: 0 !important;
+
+  .form-config.tabBarFrame {
+    border: 0 !important;
+    .tabBar {
+
+      .tab {
+        border: 0;
+        border-bottom: solid lighten(@background-333,10%) 6px;
+        border-radius: 0 !important;
+        background-color: @background-333;
+        &:hover {
+          background-color: darken(@blue,10%);
+          border-bottom: solid  darken(@blue,15%) 6px;
+        }
+        &.active {
+          background-color: @white;
+          border-bottom: solid @blue 6px;
+        }
+      }
+    }
+  }
+}
