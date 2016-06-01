@@ -405,6 +405,7 @@ img[src$="grey_anime.gif"] {
 img {
   &.icon-grey,
   &.icon-aborted,
+  &.icon-disabled,
   &.icon-nobuilt {
     &.icon-xlg {
       content: @grey-image-48;
@@ -421,6 +422,7 @@ img {
   }
 }
 img[src$="aborted.png"],
+img[src$="disabled.png"],
 img[src$="nobuilt.png"],
 img[src$="grey.png"] {
   vertical-align: text-top;
@@ -437,6 +439,7 @@ img[src$="grey.png"] {
     content: @grey-image-16;
   }
 }
+
 // weather
 img.icon-health-00to19 {
   &.icon-xlg {
