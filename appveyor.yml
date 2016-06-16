@@ -130,6 +130,5 @@ after_deploy:
         & git push origin gh-pages;
       }
     } catch [Exception]  {
-      "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Error;
-      throw;
+      "$_.Exception.GetType().FullName, $_.Exception.Message" | Write-Warning;
     }
