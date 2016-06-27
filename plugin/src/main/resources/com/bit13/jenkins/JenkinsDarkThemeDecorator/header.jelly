@@ -1,8 +1,4 @@
 <?jelly escape-by-default='true'?>
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
-  <l:layout>
-    <l:header>
-      <link type="text/css" rel="stylesheet" href="${rootURL}/plugin/jenkins-dark-theme/jenkins-dark.min.css" />
-    </l:header>
-  </l:layout>
+  <link type="text/css" rel="stylesheet" href="${rootURL}/plugin/jenkins-dark-theme/jenkins-dark.min.css" />
 </j:jelly>
