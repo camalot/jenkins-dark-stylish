@@ -2,7 +2,7 @@
 A theme for Jenkins to give a dark look.
 
 ```
-NOTE: This has not been tested with Jenkins 2.x.
+NOTE: Tested with both Jenkins version 1.6xx+ and 2.x (some things on 2.x are not styled properly yet.)
 ```
 
 You will need to add the domains that you want this to apply to yourself if you use the Stylish plugin.
@@ -15,6 +15,7 @@ You will need to add the domains that you want this to apply to yourself if you 
 - Click `Configure System` and scroll to `Theme` section
 - Specify the URL of `http://camalot.github.io/jenkins-dark-stylish/jenkins-dark.min.css` for the CSS
 - Click `Save`
+- Profit!
 
 ### Native Jenkins Plugin
 - Download the [latest  release hpi file](https://github.com/camalot/jenkins-dark-stylish/releases/latest)
@@ -40,6 +41,20 @@ _NOTE: these steps may be slightly different for FireFox version of Stylish_
 - Select the `jenkins-dark.css` file that you extracted earlier
 - Add your domains that you want this to apply to
 - Profit!
+
+### Install the plugin via chef and the [jenkins-cookbook](https://supermarket.chef.io/cookbooks/jenkins)
+
+```
+jenkins_dark_theme_version = '1.0.105'
+jenkins_dark_source = "https://github.com/camalot/jenkins-dark-stylish/releases/download/jenkins-dark-stylish-#{jenkins_dark_theme_version}/jenkins-dark-stylish-#{jenkins_dark_theme_version}.hpi"
+
+jenkins_plugin 'jenkins-dark-theme' do
+  action [:install]
+  source jenkins_dark_source
+end
+```
+- Profit!
+
 
 ## Screenshots
 

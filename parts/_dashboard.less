@@ -7,6 +7,7 @@ table#computers {
 }
 .dashboard {
   table#projectstatus {
+    .job-status-disabled,
     .job-status-red-anime,
     .job-status-yellow-anime,
     .job-status-green-anime,
@@ -26,6 +27,17 @@ table#computers {
         vertical-align: middle;
       }
     }
+
+    .job-status-disabled {
+      color: darken(@text-light,10%) !important;
+      text-decoration: line-through;
+      opacity: 0.5;
+      a {
+        color: darken(@text-light,10%) !important;
+        text-decoration: line-through;
+      }
+    }
+
     &.stripped-odd tr:nth-child(even),
     &.stripped tr {
       &.job-status-red-anime,

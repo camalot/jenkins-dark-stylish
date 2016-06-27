@@ -10,10 +10,9 @@
 }
 @import url( './parts/_keyframes.less');
 @import url('./parts/_scrollbar.less');
+@import url('./parts/_dialogs.less');
 
 #main-panel,
-.bottom-sticker-inner,
-.top-sticker-inner,
 body,
 html {
     background: @background-dark;
@@ -41,13 +40,15 @@ a,
 a:link,
 a:visited {
     text-decoration: none;
-    color: @blue;
+    /* this is !important because there are places that it is set to black inline and no available selector. */
+    color: @blue !important;
     outline: none;
 }
 .setting-input,
 input[type='password']:hover,
 input[type='text']:hover {
     border-color: #4183C4;
+
 }
 .setting-input,
 input[type='password'],
@@ -57,8 +58,8 @@ input[type='text'] {
     color: @text-light;
     background-color: #3a3a3a;
     outline: none;
-    padding: 6px 5px 4px;
-    border-radius: 0;
+    padding: 6px 5px 4px !important;
+    border-radius: 0 !important;
     box-shadow: none;
 }
 footer {
@@ -73,10 +74,7 @@ footer {
 @import url( './parts/_notifications.less');
 @import url( './parts/_wtf.less');
 @import url( './parts/_code-editor.less');
-.bottom-sticker-edge {
-    /* hide the shadow on the bottom panel */
-    display: none;
-}
+
 #menuSelector {
     -webkit-filter: invert(100%);
 }
@@ -104,13 +102,16 @@ footer {
 }
 .section-header {
     margin: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     padding: 10px;
+    padding-bottom: 10px;
     font-size: 3em;
     background-color: @blue;
     color: @text-light;
     text-transform: uppercase;
-    border: none;
-    border-bottom: none;
+    border: none !important;
+    border-bottom: none !important;
 }
 @import url("./parts/_breadcrumbs.less");
 @import url("./parts/_side-panel.less");
