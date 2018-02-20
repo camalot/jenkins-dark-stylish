@@ -13,7 +13,7 @@ You will need to add the domains that you want this to apply to yourself if you 
 - Install the [Simple Theme Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin) on your Jenkins Server
 - Click `Manage Jenkins`
 - Click `Configure System` and scroll to `Theme` section
-- Specify the URL of `http://camalot.github.io/jenkins-dark-stylish/jenkins-dark.min.css` for the CSS
+- Specify the URL of `https://camalot.github.io/jenkins-dark-stylish/jenkins-dark.min.css` for the CSS
 - Click `Save`
 - Profit!
 
